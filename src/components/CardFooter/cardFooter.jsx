@@ -4,8 +4,8 @@ import './cardFooter.scss';
 function CardFooter() {
     return <>
         <div className="footer-background">
-            <span style={{"textAlign":"centre", "color":"white"}}>Available on</span>
-            <div style={{"display": "flex", "alignItems": "centre", "gap":"0.25rem"}}>
+            <span className="text">Available on</span>
+            <div className="button-cluster">
                 <Button classNames="icon-button" youtubeButton />
                 <Button classNames="icon-button" googlePlayButton />
                 <Button classNames="icon-button" netflixButton />

@@ -8,7 +8,8 @@
     width: 20px;
 
     &:hover {
+        transition-delay: 450ms;
         transition-duration: 250ms;
-        transform: rotate(270deg);
+        transform: rotate(360deg);
     }
 }

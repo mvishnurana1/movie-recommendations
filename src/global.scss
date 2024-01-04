@@ -1,0 +1,14 @@
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-50px); }
+    100% { transform: translateY(0); }
+}
+
+.icon {
+    width: 20px;
+
+    &:hover {
+        transition-duration: 250ms;
+        transform: rotate(270deg);
+    }
+}

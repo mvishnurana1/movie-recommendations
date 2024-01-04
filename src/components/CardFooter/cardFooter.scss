@@ -1,0 +1,20 @@
+@import "../../global.scss";
+
+.footer-background {
+    align-items: center;
+    background-color: rgb(75, 67, 67);
+    bottom: 1.5rem;
+    border-radius: .25rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    justify-content: center;
+    margin: .25rem .25rem 0 0;
+    padding: .5rem .4rem .5rem .5rem;
+    position: absolute;
+}
+
+.amazon {
+    border-radius: 50%;
+}

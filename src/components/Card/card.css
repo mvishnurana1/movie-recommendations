@@ -1,0 +1,32 @@
+.card-body {
+    background-color: #1A1A1A;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 14px;
+    height: 465px;
+    width: 185px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0.5rem;
+    position: relative;
+}
+
+.card-main-img {
+    width: inherit;
+    height: 274px;
+    border-radius: 0.25rem 0;
+}
+
+.movie-title {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.flex {
+    display: flex;
+    gap: .5rem;
+    margin: 1rem;
+}
+
+.card-footer {
+    margin: 1rem;
+}

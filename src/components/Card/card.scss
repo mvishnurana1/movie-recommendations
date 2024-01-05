@@ -14,6 +14,7 @@
     width: inherit;
     height: 274px;
     border-radius: 0.25rem 0;
+    object-fit: cover;
 }
 
 .movie-title {
@@ -29,4 +30,22 @@
 
 .card-footer {
     margin: 1rem;
+}
+
+.card-effect {
+    &:hover {
+        .card-main-img {
+            height: 325px;
+        }
+
+        .icon-rotate {
+            transition-delay: 450ms;
+            transition-duration: 250ms;
+            transform: rotate(360deg);
+        }
+
+        height: 500px;
+        width: 225px;
+        transition: max-height 2s ease-in;
+    }
 }

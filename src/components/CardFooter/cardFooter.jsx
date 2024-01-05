@@ -1,15 +1,14 @@
 import Button from "../Button/button";
 import './cardFooter.scss';
 
-function CardFooter() {
+function CardFooter({ availableOn }) {
     return <>
         <div className="footer-background">
             <span className="text">Available on</span>
             <div className="button-cluster">
-                <Button classNames="icon-button" youtubeButton />
-                <Button classNames="icon-button" googlePlayButton />
-                <Button classNames="icon-button" netflixButton />
-                <Button classNames="icon-button" primeButton />
+                {availableOn.map((value, index) =>
+                    <Button classNames="icon-button" btn={value} key={index} />
+                )}
             </div>
         </div>
     </>

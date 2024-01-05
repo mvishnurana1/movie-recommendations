@@ -1,47 +1,48 @@
 import React from 'react';
-import {
-    amazon,
-    googlePlay,
-    netflix,
-    youtube
-} from '../../assets';
+import { amazon, googlePlay, netflix, youtube } from '../../assets';
 import './button.scss';
 
-function Button({
-    classNames,
-    children,
-    netflixButton,
-    primeButton,
-    googlePlayButton,
-    youtubeButton,
-}) {
-    return <button className={`button ${classNames}`} 
-            title={`${netflixButton ?? primeButton ?? googlePlayButton ?? youtubeButton ?? 'button'}`}>
+function Button({ classNames, btn }) {
+    switch(btn) {
+        case 'netflix':
+            return <button className={`button ${classNames}`}>
+                <div>
+                    <a href="https://www.netflix.com/" title='Netflix' target='_blank' rel="noreferrer">
+                        <img className='icon-rotate' src={ netflix } alt="Netflix" title="Netflix" />
+                    </a>
+                </div>
+            </button>
+        
+        case 'youtube':
+            return <button className={`button ${classNames}`}>
+                <div>
+                    <a href="https://youtube.com/" title='YouTube' target='_blank' rel="noreferrer">
+                        <img className='icon-rotate' src={ youtube } alt="YouTube" title="YouTube" />
+                    </a>
+                </div>
+            </button>
 
-            <div className='button-layout'>
-                {netflixButton && <div>
-                    <a href="https://www.netflix.com/" title='netflix' target='_blank' rel="noreferrer">
-                        <img className='icon' src={ netflix } alt="Netflix" title="Netflix" />
+        case 'primeVideos':
+            return <button className={`button ${classNames}`}>
+                <div>
+                    <a href="https://www.primevideo.com/" title='Prime Videos' target='_blank' rel="noreferrer">
+                        <img className='round icon-rotate' src={ amazon } alt="Prime Videos" title='Prime Videos' />
                     </a>
-                </div>}
-                {primeButton && <div>
-                    <a href="https://www.primevideo.com/" title='netflix' target='_blank' rel="noreferrer">
-                        <img className='round icon' src={ amazon } alt="Prime Videos" title='Prime Videos' />
+                </div>
+            </button>
+
+        case 'googlePlayMovies':
+            return <button className={`button ${classNames}`}>
+                <div>
+                    <a href="https://play.google.com/store/movies" title='Google Play Movies' target='_blank' rel="noreferrer">
+                        <img className='icon-rotate' src={ googlePlay } alt="Google Play Movies" title='Google Play Movies' />
                     </a>
-                </div>}        
-                {googlePlayButton && <div>
-                    <a href="https://play.google.com/store/movies" title='Google Play' target='_blank' rel="noreferrer">
-                        <img className='icon' src={ googlePlay } alt="Google Play" title='Google Play' />
-                    </a>
-                </div>}        
-                {youtubeButton && <div>
-                    <a href="https://youtube.com/" title='netflix' target='_blank' rel="noreferrer">
-                        <img className='icon' src={ youtube } alt="YouTube" title="YouTube" />
-                    </a>
-                </div>}
-                {children}
-            </div>
-    </button>
+                </div>
+            </button>
+        
+        default:
+            return <>{btn}</>
+    }
 }
 
 export default Button;

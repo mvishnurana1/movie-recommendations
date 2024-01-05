@@ -19,11 +19,11 @@ function App() {
     <div className='App'>
       <h3 className='title'>Movie Recommendation App</h3>
       <div className='centre'>
-        <Card showFilmFooter showFilmRating />
+        <Card />
 
         {labels.map((_value, index) =>
           <Card
-            cardMainClass="card-effect"
+            cardMainClass="movie-card-hover-effect"
             filmRating={filmRating}
             filmInfo={filmInfo}
             imgSrc={poster}

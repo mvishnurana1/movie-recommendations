@@ -1,3 +1,5 @@
+@import './../../global.scss';
+
 .card-body {
     background-color: #1A1A1A;
     border-radius: 0.25rem;
@@ -8,44 +10,31 @@
     font-family: 'Roboto', sans-serif;
     margin: 0.5rem;
     position: relative;
-}
 
-.card-main-img {
-    width: inherit;
-    height: 274px;
-    border-radius: 0.25rem 0;
-    object-fit: cover;
-}
+    .card-main-img {
+        width: inherit;
+        height: 274px;
+        border-radius: 0.25rem 0;
+        object-fit: cover;
+    }
 
-.movie-title {
-    font-size: 16px;
-    font-weight: 400;
-}
+    .movie-title {
+        font-size: 16px;
+        font-weight: 400;
+    }
 
-.flex {
-    display: flex;
-    gap: .5rem;
-    margin: 1rem;
-}
+    .flex {
+        display: flex;
+        gap: .5rem;
+        margin: 1rem;
+    }
 
-.card-footer {
-    margin: 1rem;
-}
+    .card-footer {
+        margin: 1rem;
+    }
 
-.card-effect {
-    &:hover {
-        .card-main-img {
-            height: 325px;
-        }
-
-        .icon-rotate {
-            transition-delay: 450ms;
-            transition-duration: 250ms;
-            transform: rotate(360deg);
-        }
-
-        height: 500px;
-        width: 225px;
-        transition: max-height 2s ease-in;
+    .centre-icons {
+        display: flex;
+        justify-content: center;
     }
 }

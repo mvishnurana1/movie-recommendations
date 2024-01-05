@@ -19,9 +19,11 @@ function Card({
             </div> }
             <div className='card-footer'>
                 {filmInfo?.title && <span className='movie-title'>{ filmInfo?.title }</span>}
-                {filmInfo?.availableOn.length && <div className='centre'>
-                    <CardFooter availableOn={filmInfo?.availableOn} />
-                </div>}
+                {filmInfo?.availableOn.length && 
+                    <div className='gl-horizontally-centre'>
+                        <CardFooter availableOn={filmInfo?.availableOn} />
+                    </div>
+                }
             </div>
         </div>
     </>

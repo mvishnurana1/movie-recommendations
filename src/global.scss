@@ -1,4 +1,4 @@
-.icon-rotate {
+.gl-icon-rotate {
     width: 20px;
 
     &:hover {
@@ -8,6 +8,29 @@
     }
 }
 
-.round {
+.gl-round {
     border-radius: 50%;
+}
+
+.gl-horizontally-centre {
+    display: flex;
+    justify-content: center;
+}
+
+.movie-card-hover-effect {
+    &:hover {
+        .card-main-img {
+            height: 325px;
+        }
+
+        .gl-icon-rotate {
+            transition-delay: 450ms;
+            transition-duration: 250ms;
+            transform: rotate(360deg);
+        }
+
+        height: 500px;
+        width: 225px;
+        transition: max-height 4s ease-in;
+    }
 }

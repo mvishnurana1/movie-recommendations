@@ -1,12 +1,13 @@
-import { 
+import {
   Box, 
   Boxes, 
   Card, 
   Question } from './components';
 import { poster } from './assets';
-import './App.scss';
+import { colorPaletteMap } from '../src/helper';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
 import { useState } from 'react';
+import './App.scss';
 
 const filmRating = {
   imDB_rating: 7.8,
@@ -17,24 +18,14 @@ const filmInfo = {
   availableOn: ['netflix', 'youtube', 'primeVideos', 'googlePlayMovies']
 }
 
-const colorPaletteMap = {
-  '#ff0034': 'red',
-  '#3F51B5': 'blue',
-  '#4CAF50': 'green',
-  '#FFEB3B': 'yellow',  
-  '#9C27B0': 'purple',
-  '#FF5722': 'orange',
-  '#000000': 'black',
-  '#F3F3F3': 'white',
-  '#F77791': 'pink',
-  '#795548': 'brown'
-};
-
 function App() {
   const [colour, setColour] = useState('');
+  const [era, setEra] = useState('');
+
   const labels = new Array(10).fill("");
 
   console.log('chosen Colour: ', colorPaletteMap[colour]);
+  console.log('chosen Era: ', era);
 
   return (
     <ErrorBoundary>
@@ -46,10 +37,21 @@ function App() {
               buttonStyle=''
               buttonClassNames='color-questions-button'
               renderChildConent
-              chosenColour={setColour}
-              colors={Object.keys(colorPaletteMap)}
+              setColour={setColour}
+              colorsQuestion
+              colours={Object.keys(colorPaletteMap)}
+              colour={colour}
               questionText="Pick a color that matches your mood now"
               questionBackgroundClassName='color-question-background'
+            />
+          }
+
+          {
+            <Question
+              timelineQuestion={true}
+              questionText="Pick one of the following"
+              questionBackgroundClassName='cars-question-layout'
+              setEra={setEra}
             />
           }
           {labels.map((_value, index) =>

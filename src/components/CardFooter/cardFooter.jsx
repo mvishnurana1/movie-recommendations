@@ -1,4 +1,4 @@
-import Button from "../Button/button";
+import IconButton from "../IconButton/iconButton";
 import './cardFooter.scss';
 
 function CardFooter({ availableOn }) {
@@ -7,7 +7,7 @@ function CardFooter({ availableOn }) {
             <span className="text">Available on</span>
             <div className="button-cluster">
                 {availableOn.map((value, index) =>
-                    <Button classNames="icon-button" btn={value} key={index} />
+                    <IconButton classNames="button-no-native-style" btn={value} key={index} />
                 )}
             </div>
         </div>

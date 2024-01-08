@@ -8,7 +8,8 @@ function Card({
     ImgclassNames,
     imgSrc,
     filmInfo,
-    filmRating
+    filmRating,
+    children
 }) {
     return <>
         <div className={`card-body ${cardMainClass}`} style={cardStyles}>
@@ -25,6 +26,7 @@ function Card({
                     </div>
                 }
             </div>
+            {children}
         </div>
     </>
 }

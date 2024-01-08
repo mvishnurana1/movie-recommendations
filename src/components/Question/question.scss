@@ -1,0 +1,31 @@
+@import '../../global.scss';
+
+.color-question-background {
+    background-color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+
+    h2 {
+        margin: 0;
+    }
+}
+
+.color-questions-button {
+    border-radius: 50%;
+    color: rgb(170, 181, 187);
+    padding: 2rem;
+
+    &:hover {
+        padding: 3rem;
+    }
+}
+
+.coloured-buttons-style {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0 0.5rem 1rem;
+    flex-wrap: wrap;
+}

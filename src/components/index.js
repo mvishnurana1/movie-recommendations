@@ -1,5 +1,14 @@
-import Button from './Button/button';
+import IconButton from './IconButton/iconButton';
+import { Boxes, Box } from './Boxes/boxes';
 import Card from "./Card/card";
 import CardFooter from "./CardFooter/cardFooter";
+import Question from './Question/question';
 
-export { Button, Card, CardFooter };
+export { 
+    Box,
+    Boxes,
+    IconButton,
+    Card,
+    CardFooter,
+    Question
+};

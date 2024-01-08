@@ -1,8 +1,8 @@
 import React from 'react';
 import { amazon, googlePlay, netflix, youtube } from '../../assets';
-import './button.scss';
+import './iconButton.scss';
 
-function Button({ classNames, btn }) {
+function IconButton({ classNames, btn }) {
     switch(btn) {
         case 'netflix':
             return <button className={`button ${classNames}`}>
@@ -45,4 +45,4 @@ function Button({ classNames, btn }) {
     }
 }
 
-export default Button;
+export default IconButton;

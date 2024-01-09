@@ -5,11 +5,7 @@ function Question({
   colours,
   questionBackgroundClassName,
   questionText,
-  // childrenLayout,
-  buttonStyle,
   buttonClassNames,
-  childStyle,
-  childConent,
   colorsQuestion,
   setColour,
   renderChildConent,
@@ -17,8 +13,10 @@ function Question({
   setEra
   }) {
   return <>
+    <div className='gl-horizontally-centre'>
+      <h2 className='gl-header-level-two'>{questionText}</h2>
+    </div>
     {colorsQuestion && <div className={questionBackgroundClassName}>
-    <h2 style={{'color': 'white'}}>{questionText}</h2>
       <button className={`coloured-buttons-style button-no-native-style`}>
           {colours?.map((color, index) => 
             <div

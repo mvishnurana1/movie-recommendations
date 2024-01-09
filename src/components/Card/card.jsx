@@ -14,12 +14,14 @@ function Card({
     return <>
         <div className={`card-body ${cardMainClass}`} style={cardStyles}>
             { imgSrc && <img className={`${ImgclassNames}`} src={ imgSrc } alt="" /> }
-            { filmRating?.imDB_rating && <div className='flex'>
+            <div className='card-footer'>
+                {filmInfo?.title && <span className='movie-title'>{ filmInfo?.title }</span>}
+            </div>
+            { filmRating?.imDB_rating && <div className='card-footer'>
                 <img src={star} alt="" width="12.8px" height="12.8px" />
                 <span>{filmRating.imDB_rating}</span>
             </div> }
-            <div className='card-footer'>
-                {filmInfo?.title && <span className='movie-title'>{ filmInfo?.title }</span>}
+            <div>
                 {filmInfo?.availableOn.length && 
                     <div className='gl-horizontally-centre'>
                         <CardFooter availableOn={filmInfo?.availableOn} />

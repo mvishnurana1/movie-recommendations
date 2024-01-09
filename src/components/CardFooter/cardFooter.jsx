@@ -4,7 +4,7 @@ import './cardFooter.scss';
 function CardFooter({ availableOn }) {
     return <>
         <div className="footer-background">
-            <span className="text">Available on</span>
+            <span className="text">Available On</span>
             <div className="button-cluster">
                 {availableOn.map((value, index) =>
                     <IconButton classNames="button-no-native-style" btn={value} key={index} />

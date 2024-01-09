@@ -1,15 +1,16 @@
 @import './../../global.scss';
 
 .card-body {
-    background-color: #1A1A1A;
-    border-radius: 0.25rem;
-    color: white;
+    background-color: white;
+    border-radius: 1rem;
+    color: black;
     font-size: 14px;
-    height: 465px;
-    width: 185px;
+    width: 250px;
     font-family: 'Roboto', sans-serif;
     margin: 0.5rem;
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 
     .card-main-img {
         width: inherit;
@@ -19,7 +20,7 @@
     }
 
     .movie-title {
-        font-size: 16px;
+        font-size: 22px;
         font-weight: 400;
     }
 
@@ -27,10 +28,17 @@
         display: flex;
         gap: .5rem;
         margin: 1rem;
+
+        &:hover {
+            transform: scale(1.15);
+            transition: transform 200ms;
+        }
     }
 
     .card-footer {
-        margin: 1rem;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0 0 10px;
     }
 
     .centre-icons {

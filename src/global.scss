@@ -1,3 +1,10 @@
+$white: #fff;
+$dark: #121331;
+
+h2 {
+    margin: 0;
+}
+
 .button-no-native-style {
 	background: none;
 	color: inherit;
@@ -10,7 +17,7 @@
 }
 
 .gl-icon-rotate {
-    width: 20px;
+    width: 40px;
 
     &:hover {
         transition-delay: 450ms;
@@ -41,7 +48,13 @@
         }
 
         height: 500px;
-        width: 225px;
         transition: max-height 4s ease-in;
     }
+}
+
+.gl-header-level-two {
+    color: black;
+    font-size: 36px;
+    font-weight: lighter;
+    margin: 48px;
 }

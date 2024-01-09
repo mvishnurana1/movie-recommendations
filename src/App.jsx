@@ -30,7 +30,7 @@ function App() {
   return (
     <ErrorBoundary>
       <div className='App'>
-        <h3 className='title'>Movie Recommendation App</h3>
+        <h2 className='title'>Movie Recommendation App</h2>
         <div className='movies-listing-layout'>
           {
             <Question

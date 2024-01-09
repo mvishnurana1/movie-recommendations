@@ -1,6 +1,4 @@
 import {
-  Box, 
-  Boxes, 
   Card, 
   Question } from './components';
 import { poster } from './assets';

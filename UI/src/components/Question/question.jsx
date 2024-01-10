@@ -2,15 +2,15 @@ import { latest, nintiesCar, retroCar } from '../../assets';
 import './question.scss';
 
 function Question({
+  buttonClassNames,
   colours,
+  colorsQuestion,
   questionBackgroundClassName,
   questionText,
-  buttonClassNames,
-  colorsQuestion,
-  setColour,
   renderChildConent,
+  setColour,
+  setEra,
   timelineQuestion,
-  setEra
   }) {
   return <>
     <div className='gl-horizontally-centre'>
@@ -32,7 +32,6 @@ function Question({
 
     {timelineQuestion && 
     <div className={questionBackgroundClassName}>
-      <h2 style={{'color': 'white'}}>{questionText}</h2>
       <div className='car-buttons-layout'>
         <button className='button-no-native-style' onClick={() => setEra('50-70')}>
           <img className='retroCar' src={ retroCar } alt='retro-card' width={'300px'} />

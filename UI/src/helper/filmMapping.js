@@ -23,3 +23,26 @@ export const colorPaletteMap = {
     '#F77791': 'pink',
     '#795548': 'brown'
 };
+
+
+export const genre = [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "History",
+    "Horror",
+    "Music",
+    "Mystery",
+    "Romance",
+    "Science Fiction",
+    "TV Movie",
+    "Thriller",
+    "War",
+    "Western",
+];

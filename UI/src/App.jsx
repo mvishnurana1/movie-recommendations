@@ -1,6 +1,4 @@
-import {
-  Card, 
-  Question } from './components';
+import { Card, Question } from './components';
 import { poster } from './assets';
 import { colorPaletteMap } from '../src/helper';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';

@@ -2,6 +2,7 @@ import { Card, Question } from './components';
 import { poster } from './assets';
 import { colorPaletteMap } from '../src/helper';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
+import { FilmProvider } from '../src/context';
 import { useState } from 'react';
 import './App.scss';
 
@@ -20,13 +21,16 @@ function App() {
 
   const labels = new Array(10).fill("");
 
+  const imgBaseUrl = 'https://image.tmdb.org/t/p/original';
+
   console.log('chosen Colour: ', colorPaletteMap[colour]);
   console.log('chosen Era: ', era);
 
   return (
     <ErrorBoundary>
+      <FilmProvider>
       <div className='App'>
-        <h2 className='title'>Movie Recommendation App</h2>
+        {/* <h2 className='title'>Movie Recommendation App</h2> */}
         <div className='movies-listing-layout'>
           {
             <Question
@@ -35,7 +39,7 @@ function App() {
               renderChildConent
               setColour={setColour}
               colorsQuestion
-              colours={Object.keys(colorPaletteMap)}
+              colours={ Object.keys(colorPaletteMap) }
               colour={colour}
               questionText="Pick a color that matches your mood now"
               questionBackgroundClassName='color-question-background'
@@ -51,6 +55,7 @@ function App() {
             />
           }
           {labels.map((_value, index) =>
+          <>
             <Card
               cardMainClass="movie-card-hover-effect"
               filmInfo={filmInfo}
@@ -59,9 +64,20 @@ function App() {
               ImgclassNames='card-main-img'
               key={index}
             />
+
+            <Card
+              cardMainClass="movie-card-hover-effect"
+              filmInfo={filmInfo}
+              filmRating={filmRating}
+              imgSrc={'https://image.tmdb.org/t/p/w500/54QOkHWUnn3gDZKfGojPiFqTHJD.jpg'}
+              ImgclassNames='card-main-img'
+              key={index + 1}
+            />
+          </>
           )}
         </div>
       </div>
+      </FilmProvider>
     </ErrorBoundary>
   );
 }

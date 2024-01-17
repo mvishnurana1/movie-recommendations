@@ -1,32 +1,36 @@
-import { star } from '../../assets';
 import CardFooter from '../CardFooter/cardFooter';
+import { star } from '../../assets';
 import './card.scss';
 
 function Card({ 
     cardMainClass,
     cardStyles,
     ImgclassNames,
-    imgSrc,
-    filmInfo,
+    originalTitle,
+    posterPath,
     filmRating,
     children
 }) {
+    const imageBaseUrl = 'https://image.tmdb.org/t/p/original/'
+
+    const filmInfo = {
+        availableOn: ['netflix', 'youtube', 'primeVideos', 'googlePlayMovies']
+      }
+
     return <>
         <div className={`card-body ${cardMainClass}`} style={cardStyles}>
-            { imgSrc && <img className={`${ImgclassNames}`} src={ imgSrc } alt="" /> }
+            { posterPath && <img className={`${ImgclassNames}`} src={`${imageBaseUrl}${posterPath}`} alt="" /> }
             <div className='card-footer'>
-                {filmInfo?.title && <span className='movie-title'>{ filmInfo?.title }</span>}
+                {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
             </div>
-            { filmRating?.imDB_rating && <div className='card-footer'>
+            <div className='card-footer'>
                 <img src={star} alt="" width="12.8px" height="12.8px" />
-                <span>{filmRating.imDB_rating}</span>
-            </div> }
+                <span>{ filmRating.toFixed(2) }</span>
+            </div>
             <div>
-                {filmInfo?.availableOn.length && 
-                    <div className='gl-horizontally-centre'>
-                        <CardFooter availableOn={filmInfo?.availableOn} />
-                    </div>
-                }
+                <div className='gl-horizontally-centre'>
+                    <CardFooter availableOn={filmInfo.availableOn} />
+                </div>
             </div>
             {children}
         </div>

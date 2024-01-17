@@ -1,19 +1,11 @@
+import { useContext, useState } from 'react';
 import { Card, Question } from './components';
 import { poster } from './assets';
+import { filmContext, FilmProvider } from './context';
+import { TopFilms } from './features';
 import { colorPaletteMap } from '../src/helper';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
-import { FilmProvider } from '../src/context';
-import { useState } from 'react';
 import './App.scss';
-
-const filmRating = {
-  imDB_rating: 7.8,
-};
-
-const filmInfo = {
-  title: 'To Catch A Thief',
-  availableOn: ['netflix', 'youtube', 'primeVideos', 'googlePlayMovies']
-}
 
 function App() {
   const [colour, setColour] = useState('');
@@ -21,15 +13,11 @@ function App() {
 
   const labels = new Array(10).fill("");
 
-  const imgBaseUrl = 'https://image.tmdb.org/t/p/original';
-
-  console.log('chosen Colour: ', colorPaletteMap[colour]);
-  console.log('chosen Era: ', era);
-
   return (
     <ErrorBoundary>
       <FilmProvider>
       <div className='App'>
+        <TopFilms />
         {/* <h2 className='title'>Movie Recommendation App</h2> */}
         <div className='movies-listing-layout'>
           {
@@ -56,7 +44,7 @@ function App() {
           }
           {labels.map((_value, index) =>
           <>
-            <Card
+            {/* <Card
               cardMainClass="movie-card-hover-effect"
               filmInfo={filmInfo}
               filmRating={filmRating}
@@ -72,9 +60,12 @@ function App() {
               imgSrc={'https://image.tmdb.org/t/p/w500/54QOkHWUnn3gDZKfGojPiFqTHJD.jpg'}
               ImgclassNames='card-main-img'
               key={index + 1}
-            />
+            /> */}
           </>
           )}
+        </div>
+
+        <div className='movies-listing-layout'>
         </div>
       </div>
       </FilmProvider>

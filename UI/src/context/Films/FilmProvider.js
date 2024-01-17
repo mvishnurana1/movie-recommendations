@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react";
-import { FilmContext } from "./FilmContext";
+import { filmContext } from "./FilmContext";
 
 export function FilmProvider({children}) {
-    const [setFilmRecommendations, filmRecommendations] = useState([]);
-    const [setTopRatedFilms, topRatedFilms] = useState({});
+    const [filmRecommendations, setFilmRecommendations] = useState([]);
+    const [topRatedFilms, setTopRatedFilms] = useState([]);
+    const [imageBaseUrl, setImageBaseUrl] = useState('https://image.tmdb.org/t/p/original')
 
+    async function fetchFunction() {
+        const response = await fetch('http://localhost:3002/toprated');
+        const data = await response.json();
+        const list = data.results;
+        
+        setTopRatedFilms(list);
+    }
 
-    useEffect(
-        // let ignore = false;
+    useEffect(() => {
+        try {
+           fetchFunction();
+        } catch (err) {
+            console.error('Error: ', err);
+        }
+    }, []);
 
-        //     const response = await fetch('http://localhost:3002/toprated');
-        //     const data = await response.json();
-        //     console.log(data);
-        //     setTopRatedFilms({ ...data });
-
-        //   } catch (error) {
-        //     console.error('Error:', error);
-    );
-
-    return (<FilmContext.Provider value={{
-        filmRecommendations,
-        topRatedFilms
+    return (<filmContext.Provider value={{
+        imageBaseUrl: imageBaseUrl,
+        filmRecommendations: filmRecommendations,
+        topRatedFilms: topRatedFilms,
     }}>
         { children }
-    </FilmContext.Provider>)
+    </filmContext.Provider>)
 }

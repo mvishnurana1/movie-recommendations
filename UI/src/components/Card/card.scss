@@ -20,8 +20,12 @@
     }
 
     .movie-title {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 400;
+        width: 225px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .flex {

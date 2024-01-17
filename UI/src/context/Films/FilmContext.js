@@ -1,6 +1,9 @@
 import { createContext } from "react";
 
-export const FilmContext = createContext({
-    topRatedFilms: {},
+const filmContext = createContext({
+    topRatedFilms: [],
     filmRecommendations: [],
+    imageBaseUrl: ''
 });
+
+export { filmContext };

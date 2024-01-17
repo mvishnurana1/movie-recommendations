@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const app = express();
 const secrets = require('./secrets.json');
-const topRated = require('./top-rated.json');
+const topRated = require('./top-rated');
 
 app.use(cors());
 app.use(express.json());

@@ -25,7 +25,7 @@ function Card({
             </div>
             <div className='card-footer'>
                 <img src={star} alt="" width="12.8px" height="12.8px" />
-                <span>{ filmRating.toFixed(2) }</span>
+                <span>{ filmRating.toFixed(1) }</span>
             </div>
             <div>
                 <div className='gl-horizontally-centre'>

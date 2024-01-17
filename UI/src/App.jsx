@@ -17,7 +17,6 @@ function App() {
     <ErrorBoundary>
       <FilmProvider>
       <div className='App'>
-        <TopFilms />
         {/* <h2 className='title'>Movie Recommendation App</h2> */}
         <div className='movies-listing-layout'>
           {
@@ -65,8 +64,7 @@ function App() {
           )}
         </div>
 
-        <div className='movies-listing-layout'>
-        </div>
+        <TopFilms />
       </div>
       </FilmProvider>
     </ErrorBoundary>

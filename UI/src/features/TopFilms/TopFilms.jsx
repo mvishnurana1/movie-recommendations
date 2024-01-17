@@ -6,23 +6,21 @@ import './TopFilms.scss';
 function TopFilms() {
     const { topRatedFilms } = useContext(filmContext);
 
-    console.log('Components: ', topRatedFilms);
-
   return (
     <>
       <div className='gl-horizontally-centre'>
-        <h2 className='gl-header-level-two'>All Time Top Recommendations</h2>
+        <h2 className='gl-header-level-two'>Our All Time Top Recommendations</h2>
       </div>
 
       <div className='movies-listing-layout'>
         {topRatedFilms.map((film, index) =>
           <Card
-          cardMainClass="movie-card-hover-effect"
-          originalTitle={ film.original_title }
-          filmRating={ film.vote_average }
-          posterPath={ film.poster_path }
-          ImgclassNames='card-main-img'
-          key={ index + 1 }
+            cardMainClass="movie-card-hover-effect"
+            originalTitle={ film.original_title }
+            filmRating={ film.vote_average }
+            posterPath={ film.poster_path }
+            ImgclassNames='card-main-img'
+            key={ index + 1 }
           />)}
         </div>
     </>

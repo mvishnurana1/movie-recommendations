@@ -1,6 +1,7 @@
-import { coloursTofilm, colorPaletteMap } from './filmMapping';
+import { coloursTofilm, colorPaletteMap, genre } from './filmMapping';
 
 export {
     coloursTofilm,
-    colorPaletteMap
+    colorPaletteMap,
+    genre
 };

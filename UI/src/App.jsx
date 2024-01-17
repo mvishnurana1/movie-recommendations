@@ -1,9 +1,8 @@
-import { useContext, useState } from 'react';
-import { Card, Question } from './components';
-import { poster } from './assets';
-import { filmContext, FilmProvider } from './context';
+import { useState } from 'react';
+import { Question } from './components';
+import { FilmProvider } from './context';
 import { TopFilms } from './features';
-import { colorPaletteMap } from '../src/helper';
+import { colorPaletteMap, coloursTofilm, genres } from '../src/helper';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
 import './App.scss';
 
@@ -12,6 +11,22 @@ function App() {
   const [era, setEra] = useState('');
 
   const labels = new Array(10).fill("");
+
+  function filmsGenre(colour) {
+    const colourString = (colorPaletteMap[colour]);
+
+    computeGenreCode(coloursTofilm[colourString]);
+    return coloursTofilm[colourString];
+  }
+
+  function computeGenreCode(generesFound) {
+    const list = 
+      generesFound.map(genreName => genres.filter(g => genreName === g.name)).flat(1);
+    
+    const codes = list.map(co => co.id);
+
+    return codes;
+  }
 
   return (
     <ErrorBoundary>
@@ -28,6 +43,7 @@ function App() {
               colorsQuestion
               colours={ Object.keys(colorPaletteMap) }
               colour={colour}
+              filmsGenre={filmsGenre}
               questionText="Pick a color that matches your mood now"
               questionBackgroundClassName='color-question-background'
             />
@@ -41,27 +57,6 @@ function App() {
               setEra={setEra}
             />
           }
-          {labels.map((_value, index) =>
-          <>
-            {/* <Card
-              cardMainClass="movie-card-hover-effect"
-              filmInfo={filmInfo}
-              filmRating={filmRating}
-              imgSrc={poster}
-              ImgclassNames='card-main-img'
-              key={index}
-            />
-
-            <Card
-              cardMainClass="movie-card-hover-effect"
-              filmInfo={filmInfo}
-              filmRating={filmRating}
-              imgSrc={'https://image.tmdb.org/t/p/w500/54QOkHWUnn3gDZKfGojPiFqTHJD.jpg'}
-              ImgclassNames='card-main-img'
-              key={index + 1}
-            /> */}
-          </>
-          )}
         </div>
 
         <TopFilms />

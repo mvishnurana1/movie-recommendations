@@ -34,7 +34,8 @@
 .coloured-buttons-style {
     display: flex;
     gap: 1.5rem;
-    margin: 1rem 0 0.5rem 1rem;
+    // Disabled for mobile View
+    // margin: 1rem 0 0.5rem 1rem;
     flex-wrap: wrap;
 }
 

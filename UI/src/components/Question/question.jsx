@@ -1,13 +1,14 @@
 import { latest, nintiesCar, retroCar } from '../../assets';
+
 import './question.scss';
 
 function Question({
   buttonClassNames,
   colours,
   colorsQuestion,
+  filmsGenre,
   questionBackgroundClassName,
   questionText,
-  renderChildConent,
   setColour,
   setEra,
   timelineQuestion,
@@ -23,9 +24,11 @@ function Question({
               className={buttonClassNames}
               key={ index }
               style={{'backgroundColor': `${ color }`}}
-              onClick={() => setColour(color)}>
-            {renderChildConent ? <span> </span> : null}
-            </div>
+              onClick={() => { 
+                setColour(color);
+                filmsGenre(color);
+              }}
+            />
           )}
       </button>
   </div>}

@@ -11,33 +11,28 @@ app.use(express.json());
 const PORT = process.env.PORT || 3002;
 const fetch = require('node-fetch');
 
-const baseImgUrl = 'https://image.tmdb.org/t/p/original';
-
-// movie genre
-// year
-// mood
-// Return -> films (on both extreme spectrum of the mood)
-app.post('/recommendations', (req, res) => {
+app.get('/recommendations', async (req, res) => {
     const movieCategory = req.body;
 
-    console.log(movieCategory);
-    
-    getGenre();
-
-    res.send(movieCategory);
+    const url = 'https://api.themoviedb.org/3/discover/movie?genre=18,35&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${secrets.key}`
+      }
+    };
+  
+    fetch(url, options)
+    .then(resp => resp.json())
+    .then(json => res.send(json));
 });
-
-app.get('/cors', (req, res) => {
-  res.send({ "msg": "This has CORS enabled 🎈" })
-})
-
 
 app.get('/toprated', (req, res) => {
   res.send(topRated);
 });
 
 function getGenre() {
-  // const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en';
   const url = 'https://api.themoviedb.org/3/movie/27/recommendations?language=en-US&page=1';
   const options = {
     method: 'GET',

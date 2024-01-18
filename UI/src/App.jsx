@@ -24,7 +24,6 @@ function App() {
       generesFound.map(genreName => genres.filter(g => genreName === g.name)).flat(1);
     
     const codes = list.map(co => co.id);
-
     return codes;
   }
 
@@ -34,7 +33,7 @@ function App() {
       <div className='App'>
         {/* <h2 className='title'>Movie Recommendation App</h2> */}
         <div className='movies-listing-layout'>
-          {
+          {(colour === '') &&
             <Question
               buttonStyle=''
               buttonClassNames='color-questions-button'
@@ -49,7 +48,7 @@ function App() {
             />
           }
 
-          {
+          {(era === '') &&
             <Question
               timelineQuestion={true}
               questionText="Pick one of the following"

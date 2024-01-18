@@ -4,7 +4,6 @@ import { filmContext } from "./FilmContext";
 export function FilmProvider({children}) {
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [topRatedFilms, setTopRatedFilms] = useState([]);
-    const [imageBaseUrl, setImageBaseUrl] = useState('https://image.tmdb.org/t/p/original')
 
     async function fetchTopRatedFilms() {
         const response = await fetch('http://localhost:3002/toprated');
@@ -19,16 +18,10 @@ export function FilmProvider({children}) {
             'mood': 'hipply'
         };
 
-        const response = await fetch('http://localhost:3002/recommendations', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(postData)});
+        const response = await fetch('http://localhost:3002/recommendations');
 
         const data = await response.json();
         const list = data.results;
-
         setFilmRecommendations(list);
     }
 
@@ -47,7 +40,6 @@ export function FilmProvider({children}) {
     }, []);
 
     return (<filmContext.Provider value={{
-        imageBaseUrl: imageBaseUrl,
         filmRecommendations: filmRecommendations,
         topRatedFilms: topRatedFilms,
     }}>

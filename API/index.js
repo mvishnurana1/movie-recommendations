@@ -23,22 +23,16 @@ app.get('/recommendations', async (req, res) => {
       }
     };
   
-    const response = await fetch(url, options);
-
-    res.json(response.data);
+    fetch(url, options)
+    .then(resp => resp.json())
+    .then(json => res.send(json));
 });
-
-app.get('/cors', (req, res) => {
-  res.send({ "msg": "This has CORS enabled 🎈" })
-})
-
 
 app.get('/toprated', (req, res) => {
   res.send(topRated);
 });
 
 function getGenre() {
-  // const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en';
   const url = 'https://api.themoviedb.org/3/movie/27/recommendations?language=en-US&page=1';
   const options = {
     method: 'GET',

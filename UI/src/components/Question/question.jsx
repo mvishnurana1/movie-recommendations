@@ -16,8 +16,6 @@ function Question({
 
     const { 
       setColour,
-      setFilmReleaseGte,
-      setFilmReleaseLte,
       fetchRecommendations
     } = useContext(filmContext);
 

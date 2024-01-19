@@ -3,14 +3,11 @@ import { filmContext } from "./FilmContext";
 import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
 export function FilmProvider({children}) {
-    let call = true;
     const [filmRecommendations, setFilmRecommendations] = useState([]);
-    const [filmReleaseGte, setFilmReleaseGte] = useState('');
-    const [filmReleaseLte, setFilmReleaseLte] = useState('');
     const [colour, setColour] = useState('');
-
+    
     const [topRatedFilms, setTopRatedFilms] = useState([]);
-
+    
     async function fetchTopRatedFilms() {
         const response = await fetch('http://localhost:3002/toprated');
         const data = await response.json();
@@ -21,12 +18,12 @@ export function FilmProvider({children}) {
 
     async function fetchRecommendations(greaterDate, lesserDate) {
         let codes = filmsGenre(colour);
-
+        
         const codeListing = codes.join(',');
-
+        
         const response = await fetch(
             `http://localhost:3002/recommendations?releaseDateGte=${greaterDate}&releaseDateLte=${lesserDate}&genre_code=${codeListing}`
-        );
+            );
 
         const data = await response.json();
         const list = data.results;
@@ -35,6 +32,8 @@ export function FilmProvider({children}) {
 
     useEffect(() => {
         try {
+            let call = true;
+            
             if (call) {
                 fetchTopRatedFilms();
                 call = false;
@@ -60,13 +59,9 @@ export function FilmProvider({children}) {
     
 
     return (<filmContext.Provider value={{
-        setFilmReleaseGte: setFilmReleaseGte,
-        setFilmReleaseLte: setFilmReleaseLte,
         setColour: setColour,
         filmRecommendations: filmRecommendations,
         topRatedFilms: topRatedFilms,
-        filmReleaseGte: filmReleaseGte,
-        filmReleaseLte: filmReleaseLte,
         colour: colour,
         fetchRecommendations: fetchRecommendations,
     }}>

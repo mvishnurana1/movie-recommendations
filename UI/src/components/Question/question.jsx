@@ -6,18 +6,18 @@ import { formatDateToDDMMYYYY } from '../../helper';
 import './question.scss';
 
 function Question({
-  buttonClassNames,
-  colours,
-  colorsQuestion,
-  questionBackgroundClassName,
-  questionText,
-  timelineQuestion,
+    buttonClassNames,
+    colours,
+    colorsQuestion,
+    questionBackgroundClassName,
+    questionText,
+    timelineQuestion,
   }) {
 
-    const { 
-      setColour,
-      fetchRecommendations
-    } = useContext(filmContext);
+  const {
+    setColour,
+    fetchRecommendations
+  } = useContext(filmContext);
 
   return <>
     <div className='gl-horizontally-centre'>
@@ -42,20 +42,20 @@ function Question({
     <div className={questionBackgroundClassName}>
       <div className='car-buttons-layout'>
         <button className='button-no-native-style' onClick={() => {
-          fetchRecommendations('1970-1-1', '1950-1-1');
+          fetchRecommendations('1970-01-01', '1950-01-01');
         } 
         }>
           <img className='retroCar' src={ retroCar } alt='retro-card' width={'300px'} />
         </button>
 
         <button className='button-no-native-style' onClick={() => {
-          fetchRecommendations('1980-1-1', '1960-1-1');
+          fetchRecommendations('1980-01-01', '1960-01-01');
         }}>
           <img className='retroCar' src={ nintiesCar } alt='nineties-card' width={'300px'} />
         </button>
 
         <button className='button-no-native-style' onClick={() => {
-          fetchRecommendations(formatDateToDDMMYYYY(new Date()), '1980-1-1');
+          fetchRecommendations(formatDateToDDMMYYYY(new Date()), '1980-01-01');
         }}>
           <img className='retroCar' src={ latest } alt='latest-card' width={'350px'} />
         </button>

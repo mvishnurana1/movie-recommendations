@@ -3,7 +3,7 @@ import { Card } from '../../components';
 import { filmContext } from '../../context';
 import './TopFilms.scss';
 
-function TopFilms() {
+function TopFilms({ mode }) {
     const { topRatedFilms } = useContext(filmContext);
 
   return (

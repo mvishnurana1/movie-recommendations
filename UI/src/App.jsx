@@ -1,6 +1,6 @@
 import { Question } from './components';
 import { FilmProvider } from './context';
-import { TopFilms } from './features';
+import { FilmRecommendations, TopFilms } from './features';
 import { colorPaletteMap, } from '../src/helper';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
 import './App.scss';
@@ -34,6 +34,7 @@ function App() {
         </div>
 
         <TopFilms />
+        <FilmRecommendations />
       </div>
       </FilmProvider>
     </ErrorBoundary>

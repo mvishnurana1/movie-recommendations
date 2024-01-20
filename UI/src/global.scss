@@ -35,6 +35,10 @@ h2 {
     justify-content: center;
 }
 
+.hide {
+    display: none;
+}
+
 .movie-card-hover-effect {
     &:hover {
         .card-main-img {

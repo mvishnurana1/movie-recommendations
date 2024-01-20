@@ -4,9 +4,8 @@ import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
 export function FilmProvider({children}) {
     const [filmRecommendations, setFilmRecommendations] = useState([]);
-    const [colour, setColour] = useState('');
-    
     const [topRatedFilms, setTopRatedFilms] = useState([]);
+    const [colour, setColour] = useState('');
     
     async function fetchTopRatedFilms() {
         const response = await fetch('http://localhost:3002/toprated');
@@ -19,10 +18,12 @@ export function FilmProvider({children}) {
     async function fetchRecommendations(greaterDate, lesserDate) {
         let codes = filmsGenre(colour);
         
+        console.log('codes from UI: ', codes);
+
         const codeListing = codes.join(',');
         
         const response = await fetch(
-            `http://localhost:3002/recommendations?releaseDateGte=${greaterDate}&releaseDateLte=${lesserDate}&genre_code=${codeListing}`
+            `http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`
             );
 
         const data = await response.json();

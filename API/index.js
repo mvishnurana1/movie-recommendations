@@ -3,13 +3,13 @@ const cors = require('cors');
 const app = express();
 const secrets = require('./secrets.json');
 const topRated = require('./top-rated');
-const api_url = require('./url');
 
 app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3002;
 const fetch = require('node-fetch');
+const moviesEndPoint = 'https://api.themoviedb.org/3/discover/movie';
 
 app.get('/recommendations', async (req, res) => {
     console.log(req.query);
@@ -22,8 +22,7 @@ app.get('/recommendations', async (req, res) => {
     console.log(`genre_code: ${genre_code}`);
 
     const url = 
-    `https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&page=1
-      &primary_release_date.lte=${releaseDateLte}&primary_release_date.gte=${releaseDateGte}&with_genres=${genre_code}`;
+    `${moviesEndPoint}?api_key=${secrets.api_key}&language=en-US&sort_by=popularity.desc&page=1&primary_release_date.lte=${releaseDateLte}&primary_release_date.gte=${releaseDateGte}&with_genres=${genre_code}`
     const options = {
       method: 'GET',
       headers: {

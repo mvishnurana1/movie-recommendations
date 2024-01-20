@@ -14,7 +14,7 @@ function FilmRecommendations() {
     return (
         <>
           <div className={hide ? `hide`: `gl-horizontally-centre`}>
-            <h2 className='gl-header-level-two'>Our All Time Top Recommendations</h2>
+            <h2 className='gl-header-level-two'>Recommendations For You</h2>
           </div>
     
           <div className='movies-listing-layout'>

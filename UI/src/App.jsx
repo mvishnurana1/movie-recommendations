@@ -6,8 +6,6 @@ import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
 import './App.scss';
 
 function App() {
-  const labels = new Array(10).fill("");
-
   return (
     <ErrorBoundary>
       <FilmProvider>

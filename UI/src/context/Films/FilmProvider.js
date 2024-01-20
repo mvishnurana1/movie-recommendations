@@ -18,8 +18,6 @@ export function FilmProvider({children}) {
     async function fetchRecommendations(greaterDate, lesserDate) {
         let codes = filmsGenre(colour);
         
-        console.log('codes from UI: ', codes);
-
         const codeListing = codes.join(',');
         
         const response = await fetch(

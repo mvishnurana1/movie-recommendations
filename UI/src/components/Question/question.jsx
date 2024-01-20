@@ -20,15 +20,15 @@ function Question() {
       <div className='gl-horizontally-centre'>
         <h2 className='gl-header-level-two'>Pick a color that matches your mood now</h2>
       </div>
-        <div>
+        <div className='gl-horizontally-centre'>
           <button className={`coloured-buttons-style button-no-native-style gl-horizontally-centre`}>
-              {colours?.map((color, index) => 
-                <div
+                {colours?.map((color, index) => 
+                  <div
                   className='color-questions-button'
                   key={ index }
                   style={{'backgroundColor': `${ color }`}}
                   onClick={() => setColour(color)} />
-              )}
+                  )}
           </button>
         </div>
     </div>

@@ -10,10 +10,7 @@ function App() {
       <FilmProvider>
       <div className='App'>
         {/* <h2 className='title'>Movie Recommendation App</h2> */}
-        <div className='app-layout'>
-          <Question />
-        </div>
-
+        <Question />
         <FilmRecommendations />
         <TopFilms />
       </div>

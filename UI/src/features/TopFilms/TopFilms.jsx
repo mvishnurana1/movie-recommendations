@@ -12,7 +12,7 @@ function TopFilms({ mode }) {
         <h2 className='gl-header-level-two'>Our All Time Top Recommendations</h2>
       </div>
 
-      <div className='movies-listing-layout'>
+      <div className='app-layout'>
         {topRatedFilms.map((film, index) =>
           <Card
             cardMainClass="movie-card-hover-effect"

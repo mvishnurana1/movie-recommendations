@@ -20,9 +20,7 @@ export function FilmProvider({children}) {
         
         const codeListing = codes.join(',');
         
-        const response = await fetch(
-            `http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`
-            );
+        const response = await fetch(`http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
 
         const data = await response.json();
         const list = data.results;

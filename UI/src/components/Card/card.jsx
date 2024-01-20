@@ -1,5 +1,5 @@
 import CardFooter from '../CardFooter/cardFooter';
-import { star } from '../../assets';
+import { star, blankFilm } from '../../assets';
 import './card.scss';
 
 function Card({ 
@@ -19,7 +19,7 @@ function Card({
 
     return <>
         <div className={`card-body ${cardMainClass}`} style={cardStyles}>
-            { posterPath && <img className={`${ImgclassNames}`} src={`${imageBaseUrl}${posterPath}`} alt="" /> }
+            <img className={`${ImgclassNames}`} src={ posterPath ? `${imageBaseUrl}${posterPath}` : `${blankFilm}`} alt="" />
             <div className='card-footer'>
                 {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
             </div>

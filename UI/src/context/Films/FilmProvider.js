@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { filmContext } from "./FilmContext";
+import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
-export function FilmProvider({children}) {
+export function FilmProvider({ children }) {
+    const [colour, setColour] = useState('');
     const [filmRecommendations, setFilmRecommendations] = useState([]);
+    const [isLoading, setLoading] = useState(false);
     const [topRatedFilms, setTopRatedFilms] = useState([]);
-
+    
     async function fetchTopRatedFilms() {
         const response = await fetch('http://localhost:3002/toprated');
         const data = await response.json();
@@ -13,25 +16,31 @@ export function FilmProvider({children}) {
         setTopRatedFilms(list);
     }
 
-    async function fetchRecommendations() {
-        const postData = {
-            'mood': 'hipply'
-        };
+    async function fetchRecommendations(greaterDate, lesserDate) {
+        setLoading(true);
 
-        const response = await fetch('http://localhost:3002/recommendations');
-
-        const data = await response.json();
-        const list = data.results;
-        setFilmRecommendations(list);
+        let codes = filmsGenre(colour);
+        
+        const codeListing = codes.join(',');
+        
+        try {
+            const response = await fetch(`http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
+            const data = await response.json();
+            const list = data.results;
+            setFilmRecommendations(list);
+        } catch (err) {
+            setFilmRecommendations(null);
+        } finally {
+            setLoading(false);
+        }
     }
 
     useEffect(() => {
         try {
             let call = true;
-
+            
             if (call) {
                 fetchTopRatedFilms();
-                fetchRecommendations();
                 call = false;
             }
         } catch (err) {
@@ -39,9 +48,28 @@ export function FilmProvider({children}) {
         }
     }, []);
 
+    function filmsGenre(colour) {
+        const colourString = (colorPaletteMap[colour]);
+    
+        const codes = computeGenreCode(coloursTofilm[colourString]);
+        return codes;
+    }
+    
+    function computeGenreCode(generesFound) {
+        const list = generesFound.map(genreName => genres.filter(g => genreName === g.name)).flat(1);
+    
+        const codes = list.map(co => co.id);
+        return codes;
+    }
+    
+
     return (<filmContext.Provider value={{
+        setColour: setColour,
         filmRecommendations: filmRecommendations,
         topRatedFilms: topRatedFilms,
+        colour: colour,
+        isLoading: isLoading,
+        fetchRecommendations: fetchRecommendations,
     }}>
         { children }
     </filmContext.Provider>)

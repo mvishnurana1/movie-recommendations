@@ -1,10 +1,10 @@
 export const coloursTofilm = {
-    'purple': ['Fantasy', 'Science Fiction', 'Crime'],
-    'brown': ['Horror', 'History', 'Documentary', 'Action'],
-    'maroon': ['War', 'Science Fiction', 'Western'],
-    'red': ['Romance', 'Mystery', 'Thriller'],
-    'orange': ['Family', 'Fantasy', 'Adventure', 'Animation'],
-    'yellow': ['Music', 'Comedy', 'Drama'],
+    'purple': ['Fantasy', 'Crime'],
+    'brown': ['History', 'Documentary'],
+    'maroon': ['War', 'Western'],
+    'red': ['Romance', 'Drama'],
+    'orange': ['Adventure', 'Animation'],
+    'yellow': ['Music', 'Comedy'],
 };
 
 export const colorPaletteMap = {

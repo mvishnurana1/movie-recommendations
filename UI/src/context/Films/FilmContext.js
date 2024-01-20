@@ -10,6 +10,7 @@ const filmContext = createContext({
     setColour: () => {},
     colour: '',
     fetchRecommendations: (x, y) => {},
+    isLoading: Boolean
 });
 
 export { filmContext };

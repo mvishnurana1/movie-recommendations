@@ -17,10 +17,6 @@ app.get('/recommendations', async (req, res) => {
     const releaseDateLte = req.query.releaseDateLte;
     const genre_code = req.query.genre_code;
 
-    console.log(`releaseDateGte: ${releaseDateGte}`);
-    console.log(`releaseDateLte: ${releaseDateLte}`);
-    console.log(`genre_code: ${genre_code}`);
-
     const url = 
     `${moviesEndPoint}?api_key=${secrets.api_key}&language=en-US&sort_by=popularity.desc&page=1&primary_release_date.lte=${releaseDateLte}&primary_release_date.gte=${releaseDateGte}&with_genres=${genre_code}`
     const options = {

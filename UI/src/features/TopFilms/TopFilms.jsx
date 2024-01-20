@@ -3,7 +3,7 @@ import { Card } from '../../components';
 import { filmContext } from '../../context';
 import './TopFilms.scss';
 
-function TopFilms({ mode }) {
+function TopFilms() {
     const { topRatedFilms } = useContext(filmContext);
 
   return (
@@ -13,14 +13,14 @@ function TopFilms({ mode }) {
       </div>
 
       <div className='app-layout'>
-        {topRatedFilms.map((film, index) =>
+        {topRatedFilms.map((film) =>
           <Card
             cardMainClass="movie-card-hover-effect"
             originalTitle={ film.original_title }
             filmRating={ film.vote_average }
             posterPath={ film.poster_path }
             ImgclassNames='card-main-img'
-            key={ index + 1 }
+            key={ film.id }
           />)}
         </div>
     </>

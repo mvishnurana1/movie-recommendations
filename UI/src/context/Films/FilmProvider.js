@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { filmContext } from "./FilmContext";
 import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
-export function FilmProvider({children}) {
-    const [filmRecommendations, setFilmRecommendations] = useState([]);
-    const [topRatedFilms, setTopRatedFilms] = useState([]);
+export function FilmProvider({ children }) {
     const [colour, setColour] = useState('');
+    const [filmRecommendations, setFilmRecommendations] = useState([]);
+    const [isLoading, setLoading] = useState(false);
+    const [topRatedFilms, setTopRatedFilms] = useState([]);
     
     async function fetchTopRatedFilms() {
         const response = await fetch('http://localhost:3002/toprated');
@@ -16,15 +17,22 @@ export function FilmProvider({children}) {
     }
 
     async function fetchRecommendations(greaterDate, lesserDate) {
+        setLoading(true);
+
         let codes = filmsGenre(colour);
         
         const codeListing = codes.join(',');
         
-        const response = await fetch(`http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
-
-        const data = await response.json();
-        const list = data.results;
-        setFilmRecommendations(list);
+        try {
+            const response = await fetch(`http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
+            const data = await response.json();
+            const list = data.results;
+            setFilmRecommendations(list);
+        } catch (err) {
+            setFilmRecommendations(null);
+        } finally {
+            setLoading(false);
+        }
     }
 
     useEffect(() => {
@@ -60,6 +68,7 @@ export function FilmProvider({children}) {
         filmRecommendations: filmRecommendations,
         topRatedFilms: topRatedFilms,
         colour: colour,
+        isLoading: isLoading,
         fetchRecommendations: fetchRecommendations,
     }}>
         { children }

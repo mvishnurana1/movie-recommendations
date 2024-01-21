@@ -10,10 +10,15 @@ function Question() {
   const {
     setColour,
     fetchRecommendations,
-    colour
+    colour,
   } = useContext(filmContext);
 
   const [clicked, setClicked] = useState(false);
+
+  function fetchRecommendationsForUser(gteTime, lteTime) {
+    setClicked(true);
+    fetchRecommendations(gteTime, lteTime);
+  }
 
   return <>
     <div className={colour ? 'hide': ''}>
@@ -33,21 +38,21 @@ function Question() {
         </div>
     </div>
     
-    <div className={clicked || colour == '' ? 'hide': ''}>
+    <div className={clicked || colour === undefined ? 'hide': ''}>
         <div className='gl-horizontally-centre'>
             <h2 className='gl-header-level-two'>Pick one of the following</h2>
         </div>
         <div className='cars-question-layout'>
           <div className='car-buttons-layout'>
-            <button className='button-no-native-style' onClick={() => { fetchRecommendations('1970-01-01', '1950-01-01'); setClicked(true) }}>
+            <button className='button-no-native-style' onClick={() => fetchRecommendationsForUser('1970-01-01', '1950-01-01')}>
               <img className='retroCar' src={ retroCar } alt='retro-card' width={'300px'} />
             </button>
 
-            <button className='button-no-native-style' onClick={() => { fetchRecommendations('1980-01-01', '1960-01-01'); setClicked(true) }}>
+            <button className='button-no-native-style' onClick={() => fetchRecommendationsForUser('1980-01-01', '1960-01-01')}>
               <img className='retroCar' src={ nintiesCar } alt='nineties-card' width={'300px'} />
             </button>
 
-            <button className='button-no-native-style' onClick={() => { fetchRecommendations(formatDateToDDMMYYYY(new Date()), '1980-01-01'); setClicked(true) }}>
+            <button className='button-no-native-style' onClick={() => fetchRecommendationsForUser(formatDateToDDMMYYYY(new Date()), '1980-01-01')}>
               <img className='retroCar' src={ latest } alt='latest-card' width={'350px'} />
             </button>
           </div>

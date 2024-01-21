@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { filmContext } from "./FilmContext";
+import { url } from '../url';
 import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
 export function FilmProvider({ children }) {
@@ -9,7 +10,7 @@ export function FilmProvider({ children }) {
     const [topRatedFilms, setTopRatedFilms] = useState([]);
     
     async function fetchTopRatedFilms() {
-        const response = await fetch('http://localhost:3002/toprated');
+        const response = await fetch(`${url}/toprated`);
         const data = await response.json();
         const list = data.results;
         
@@ -24,7 +25,7 @@ export function FilmProvider({ children }) {
         const codeListing = codes.join(',');
         
         try {
-            const response = await fetch(`http://localhost:3002/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
+            const response = await fetch(`${url}/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
             const data = await response.json();
             const list = data.results;
             setFilmRecommendations(list);
@@ -49,6 +50,7 @@ export function FilmProvider({ children }) {
     }, []);
 
     function filmsGenre(color = '#22092C') {
+        // Maps to Purple by default:
         const colourString = (colorPaletteMap[color]);
         
         const codes = computeGenreCode(coloursTofilm[colourString]);

@@ -3,7 +3,7 @@ import { filmContext } from "./FilmContext";
 import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
 export function FilmProvider({ children }) {
-    const [colour, setColour] = useState('');
+    const [colour, setColour] = useState(undefined);
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [topRatedFilms, setTopRatedFilms] = useState([]);
@@ -19,8 +19,8 @@ export function FilmProvider({ children }) {
     async function fetchRecommendations(greaterDate, lesserDate) {
         setLoading(true);
 
-        let codes = filmsGenre(colour);
-        
+        const codes = filmsGenre(colour);
+
         const codeListing = codes.join(',');
         
         try {
@@ -48,9 +48,9 @@ export function FilmProvider({ children }) {
         }
     }, []);
 
-    function filmsGenre(colour) {
-        const colourString = (colorPaletteMap[colour]);
-    
+    function filmsGenre(color = '#22092C') {
+        const colourString = (colorPaletteMap[color]);
+        
         const codes = computeGenreCode(coloursTofilm[colourString]);
         return codes;
     }

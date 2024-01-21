@@ -33,7 +33,7 @@ function Question() {
         </div>
     </div>
     
-    <div className={clicked ? 'hide': ''}>
+    <div className={clicked || colour == '' ? 'hide': ''}>
         <div className='gl-horizontally-centre'>
             <h2 className='gl-header-level-two'>Pick one of the following</h2>
         </div>

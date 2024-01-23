@@ -26,11 +26,11 @@ function FilmRecommendations() {
 
     return (
         <>
-          <div className={hide ? `hide`: `gl-horizontally-centre`}>
+          <div className={hide ? 'hide': 'gl-horizontally-centre'}>
             <h2 className='gl-header-level-two'>Recommendations For You</h2>
           </div>
     
-          <div className='app-layout'>
+          <div className='app-layout gl-horizontally-centre'>
             {filmRecommendations.map((film) =>
               <Card
                 cardMainClass="movie-card-hover-effect"

@@ -41,18 +41,11 @@ h2 {
 
 .movie-card-hover-effect {
     &:hover {
-        .card-main-img {
-            height: 325px;
-        }
-
         .gl-icon-rotate {
             transition-delay: 450ms;
             transition-duration: 250ms;
             transform: rotate(360deg);
         }
-
-        height: 500px;
-        transition: max-height 4s ease-in;
     }
 }
 
@@ -61,4 +54,20 @@ h2 {
     font-size: 36px;
     font-weight: lighter;
     margin: 3rem;
+}
+
+.vertically-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.app-layout {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }

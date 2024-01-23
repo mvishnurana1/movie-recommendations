@@ -21,7 +21,7 @@ function Question() {
   }
 
   return <>
-    <div className={colour ? 'hide': ''}>
+    <div className={colour ? 'hide': 'vertically-center'}>
       <div className='gl-horizontally-centre'>
         <h2 className='gl-header-level-two'>Pick a color that matches your mood now</h2>
       </div>
@@ -38,7 +38,7 @@ function Question() {
         </div>
     </div>
     
-    <div className={clicked || colour === undefined ? 'hide': ''}>
+    <div className={clicked || colour === undefined ? 'hide': 'vertically-center'}>
         <div className='gl-horizontally-centre'>
             <h2 className='gl-header-level-two'>Pick one of the following</h2>
         </div>

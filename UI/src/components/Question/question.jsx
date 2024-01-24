@@ -18,14 +18,14 @@ function Question({
           <div className={`${buttonLayout} options-listing`}>
                 {imgListing ? list.map((choice, index) =>
                 <button
-                key={ index }
-                className={'button-no-native-style '+ elementClass}>
-                  <img 
-                    width={choice.width}
-                    src={choice.imgSrc}
-                    alt={choice.alt}
-                    onClick={() => handleClick(choice.gteTime, choice.lteTime)}
-                  />
+                  key={ index }
+                  className={'button-no-native-style '+ elementClass}>
+                    <img 
+                      width={choice.width}
+                      src={choice.imgSrc}
+                      alt={choice.alt}
+                      onClick={() => handleClick(choice.gteTime, choice.lteTime)}
+                    />
                 </button>
                 ) : list?.map((choice, index) => 
                   <button

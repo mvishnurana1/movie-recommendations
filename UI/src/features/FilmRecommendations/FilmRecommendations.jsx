@@ -30,7 +30,6 @@ function FilmRecommendations() {
     function handleClick(film) {
       setOpen(true);
       setChosenFilm(film);
-      console.log('Film: ', film);
     }
 
     return (
@@ -49,8 +48,6 @@ function FilmRecommendations() {
               ImgclassNames='card-main-img'
               key={ film.id }
               posterPath={ film.poster_path ?? '' }
-              setOpen
-              open
               />)}
           </div>
 

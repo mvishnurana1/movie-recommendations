@@ -1,0 +1,15 @@
+@import '../../global.scss';
+
+.flex-top {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EFEFEF;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.modal {
+    width: 40rem;
+    background-color: pink;
+    margin-top: 3rem;
+}

@@ -49,9 +49,11 @@ function numberToMonth(number) {
         case 11:
             return 'Nov';
         case 12:
-            return 'Dec';                                        
+            return 'Dec';
+        default:
+            return '';                                     
     }
 }
-  
+
 
 export { addYearsToDate, formatDateToDDMMYYYY, numberToMonth };

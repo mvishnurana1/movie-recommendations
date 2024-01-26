@@ -15,7 +15,7 @@ function AppModal({
     const releaseDate = new Date(release_date);
 
     function isLastElement(index) {
-        return index == genereLength - 1;
+        return index === genereLength - 1;
     }
 
     return <ReactModal
@@ -28,8 +28,8 @@ function AppModal({
             <button onClick={() => closeModal()}>Close</button>
         </div>
 
-        <div>
-            <img src={ backdrop_path ? `${imageBaseUrl}${backdrop_path}` : `${blankFilm}`} alt="" width='20%' height="20%"/>
+        <div style={{width: '3rem', marginBottom: '4rem' }}>
+            <img src={ backdrop_path ? `${imageBaseUrl}${backdrop_path}` : `${blankFilm}`} alt=""/>
         </div>
         <div>
             {title}

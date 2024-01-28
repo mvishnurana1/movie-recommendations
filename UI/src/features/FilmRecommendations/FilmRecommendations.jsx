@@ -27,7 +27,7 @@ function FilmRecommendations() {
     }
 
     if (isLoading) {
-      return <div className='gl-horizontally-centre'>
+      return <div style={{ height: '100%', width: '100%' }} className='layout'>
           <Loader />
         </div>
     }

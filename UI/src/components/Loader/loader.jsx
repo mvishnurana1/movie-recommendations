@@ -1,7 +1,9 @@
 import { loader } from '../../assets';
 
 function Loader() {
-    return <img src={ loader } alt="loader_icon" />
+    return <div style={{ width: '5rem' }}>
+        <img src={ loader } alt="loader_icon" />
+    </div>
 }
 
 export default Loader;

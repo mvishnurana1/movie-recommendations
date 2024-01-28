@@ -35,6 +35,12 @@ h2 {
     justify-content: center;
 }
 
+.gl-horizontal-space-between {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
 .hide {
     display: none;
 }

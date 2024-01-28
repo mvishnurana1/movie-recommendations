@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { filmContext } from "./FilmContext";
 import { url } from '../url';
 import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
@@ -7,17 +7,8 @@ export function FilmProvider({ children }) {
     const [colour, setColour] = useState(undefined);
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [topRatedFilms, setTopRatedFilms] = useState([]);
     const [era, setEra] = useState([]);
   
-    async function fetchTopRatedFilms() {
-        const response = await fetch(`${url}/toprated`);
-        const data = await response.json();
-        const list = data.results;
-        
-        setTopRatedFilms(list);
-    }
-
     async function fetchRecommendations(greaterDate, lesserDate) {
         setLoading(true);
         const era = [greaterDate, lesserDate];
@@ -40,19 +31,6 @@ export function FilmProvider({ children }) {
         }
     }
 
-    useEffect(() => {
-        try {
-            let call = true;
-            
-            if (call) {
-                fetchTopRatedFilms();
-                call = false;
-            }
-        } catch (err) {
-            throw err;
-        }
-    }, []);
-
     function filmsGenre(color = '#22092C') {
         // Maps to Purple by default:
         const colourString = (colorPaletteMap[color]);
@@ -72,7 +50,6 @@ export function FilmProvider({ children }) {
     return (<filmContext.Provider value={{
         setColour: setColour,
         filmRecommendations: filmRecommendations,
-        topRatedFilms: topRatedFilms,
         colour: colour,
         era: era,
         isLoading: isLoading,

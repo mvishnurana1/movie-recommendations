@@ -8,7 +8,8 @@ export function FilmProvider({ children }) {
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [topRatedFilms, setTopRatedFilms] = useState([]);
-    
+    const [era, setEra] = useState([]);
+  
     async function fetchTopRatedFilms() {
         const response = await fetch(`${url}/toprated`);
         const data = await response.json();
@@ -19,6 +20,8 @@ export function FilmProvider({ children }) {
 
     async function fetchRecommendations(greaterDate, lesserDate) {
         setLoading(true);
+        const era = [greaterDate, lesserDate];
+        setEra(era);
 
         const codes = filmsGenre(colour);
 
@@ -70,8 +73,10 @@ export function FilmProvider({ children }) {
         filmRecommendations: filmRecommendations,
         topRatedFilms: topRatedFilms,
         colour: colour,
+        era: era,
         isLoading: isLoading,
         fetchRecommendations: fetchRecommendations,
+        setLoading: setLoading,
     }}>
         { children }
     </filmContext.Provider>)

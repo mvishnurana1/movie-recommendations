@@ -23,6 +23,37 @@ function addYearsToDate(originalDate, yearsToAdd) {
     
     return new Date(changedYear, originalMonth, date);
 }
-  
 
-export { addYearsToDate, formatDateToDDMMYYYY };
+function numberToMonth(number) {
+    switch (number) {
+        case 1:
+            return 'Jan';
+        case 2:
+            return 'Feb';
+        case 3:
+            return 'March';
+        case 4:
+            return 'April';
+        case 5:
+            return 'May';
+        case 6:
+            return 'June';
+        case 7:
+            return 'July';
+        case 8:
+            return 'Aug';
+        case 9:
+            return 'Sep';
+        case 10:
+            return 'Oct';
+        case 11:
+            return 'Nov';
+        case 12:
+            return 'Dec';
+        default:
+            return '';                                     
+    }
+}
+
+
+export { addYearsToDate, formatDateToDDMMYYYY, numberToMonth };

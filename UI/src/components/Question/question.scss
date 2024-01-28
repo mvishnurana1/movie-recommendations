@@ -1,23 +1,5 @@
 @import '../../global.scss';
 
-.color-question-background {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    border-radius: 1rem;
-    width: 100%;
-
-    h2 {
-        margin: 0;
-    }
-
-    &:hover {
-        padding: 4rem;
-    }
-}
-
 .color-questions-button {
     border-radius: 50%;
     color: rgb(170, 181, 187);
@@ -34,34 +16,18 @@
 .coloured-buttons-style {
     display: flex;
     gap: 1.5rem;
-    // Disabled for mobile View
-    // margin: 1rem 0 0.5rem 1rem;
     flex-wrap: wrap;
 }
 
+.car-hover {
+    &:hover {
+        transform: scale(1.15);
+        transition: transform 200ms;
+    }
+}
 
-.cars-question-layout {
+.options-listing {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-    h2 {
-        margin: 0;
-    }
-
-    .car-buttons-layout {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .retroCar {
-        &:hover {
-            transform: scale(1.15);
-            transition: transform 200ms;
-        }
-    }
+    justify-content: center;
+    flex-wrap: wrap;
 }

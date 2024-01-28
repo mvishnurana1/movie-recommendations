@@ -14,7 +14,7 @@
 
     .modal-button {
         align-items: center;
-        background-color: grey;
+        background-color: white;
         border-radius: 50%;
         border: 1px solid black;
         display: flex;
@@ -23,9 +23,9 @@
         margin: 0 0.5rem;
         padding: 1rem;
         width: 1rem;
-
+        
         &:hover {
-            background-color: white;
+            background-color: grey;
             color: black;
         }
     }

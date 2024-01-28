@@ -4,7 +4,12 @@ import { filmContext } from '../../context';
 import './FilmRecommendations.scss';
 
 function FilmRecommendations() {
-    const { filmRecommendations, isLoading } = useContext(filmContext);
+    const { 
+      filmRecommendations,
+      isLoading,
+      setColour,
+      setEra,
+      setFilmRecommendations } = useContext(filmContext);
     const [ chosenFilm, setChosenFilm ] = useState(null);
     const [open, setOpen] = useState(false);
     
@@ -34,8 +39,18 @@ function FilmRecommendations() {
 
     return (
         <>
-          <div className={hide ? 'hide': 'gl-horizontally-centre'}>
-            <h2 className='gl-header-level-two'>Recommendations For You</h2>
+          <div className={hide ? 'hide': 'layout'}>
+            <div>
+              <h2 className='gl-header-level-two'>Recommendations For You</h2>
+            </div>
+            <div>
+              <button className='button-no-native-style back-button'
+                onClick={() => {
+                  setEra([]);
+                  setFilmRecommendations([]);
+                  setColour(undefined);
+                }}>Back To Questions</button>
+            </div>
           </div>
     
           <div className='app-layout gl-horizontally-centre'>

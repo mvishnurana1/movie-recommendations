@@ -13,6 +13,8 @@ const filmContext = createContext({
     isLoading: Boolean,
     setLoading: (x) => {},
     era: [],
+    setEra: (x) => {},
+    setFilmRecommendations: (x) => {},
 });
 
 export { filmContext };

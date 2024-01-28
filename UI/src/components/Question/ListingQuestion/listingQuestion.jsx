@@ -1,6 +1,6 @@
-import './question.scss';
+import './listingQuestion.scss';
 
-function Question({
+function ListQuestion({
   elementClass,
   list,
   questionContent,
@@ -41,4 +41,4 @@ function Question({
   </>
 }
 
-export default Question;
+export default ListQuestion;

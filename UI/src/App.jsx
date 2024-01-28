@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Question } from './components';
+import { ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
 import { colorPaletteMap, formatDateToDDMMYYYY } from './helper';
@@ -47,7 +47,7 @@ function App() {
 
   return (
       <>
-        {(colour === undefined) && <Question
+        {(colour === undefined) && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour)}
           list={ colours }
           questionContent={'Pick a color that matches your mood now'}
@@ -56,7 +56,7 @@ function App() {
           buttonLayout={'coloured-buttons-style'}
         />}
 
-        {(era.length === 0) && (colour !== undefined) && <Question
+        {(era.length === 0) && (colour !== undefined) && <ListingQuestion
           handleClick={(gteTime, lteTime) => fetchRecommendationsForUser(gteTime, lteTime)}
           questionContent={'Pick one of the following'}
           list={ cars }

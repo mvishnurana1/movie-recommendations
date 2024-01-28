@@ -34,6 +34,7 @@ export function FilmProvider({ children }) {
             setFilmRecommendations(list);
         } catch (err) {
             setFilmRecommendations(null);
+            throw err;
         } finally {
             setLoading(false);
         }
@@ -48,7 +49,7 @@ export function FilmProvider({ children }) {
                 call = false;
             }
         } catch (err) {
-            console.error('Error: ', err);
+            throw err;
         }
     }, []);
 
@@ -77,6 +78,8 @@ export function FilmProvider({ children }) {
         isLoading: isLoading,
         fetchRecommendations: fetchRecommendations,
         setLoading: setLoading,
+        setEra: setEra,
+        setFilmRecommendations: setFilmRecommendations
     }}>
         { children }
     </filmContext.Provider>)

@@ -24,7 +24,6 @@ export function FilmProvider({ children }) {
             const list = data.results;
             setFilmRecommendations(list);
         } catch (err) {
-            setFilmRecommendations(null);
             throw err;
         } finally {
             setLoading(false);
@@ -45,7 +44,6 @@ export function FilmProvider({ children }) {
         const codes = list.map(co => co.id);
         return codes;
     }
-    
 
     return (<filmContext.Provider value={{
         setColour: setColour,

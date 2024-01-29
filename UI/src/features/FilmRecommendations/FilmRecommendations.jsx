@@ -14,7 +14,7 @@ function FilmRecommendations() {
     const [open, setOpen] = useState(false);
     
     const error = filmRecommendations === null;
-    const hide = filmRecommendations.length === 0;
+    const hide = filmRecommendations?.length === 0;
 
     if (!filmRecommendations) {
         return <></>

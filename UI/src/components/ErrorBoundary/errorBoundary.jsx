@@ -24,6 +24,7 @@ class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
+            console.log("has Error");
             return <ErrorPage />
         }
 

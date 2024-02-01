@@ -8,11 +8,15 @@ export function FilmProvider({ children }) {
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [era, setEra] = useState([]);
+    const [culture, setCulture] = useState(undefined);
+
+    const [fetched, setFetched] = useState(false);
   
-    async function fetchRecommendations(greaterDate, lesserDate) {
+    async function fetchRecommendations() {
         setLoading(true);
-        const era = [greaterDate, lesserDate];
-        setEra(era);
+
+        const greaterDate = era[0];
+        const lesserDate = era[1];
 
         const codes = filmsGenre(colour);
 
@@ -27,6 +31,7 @@ export function FilmProvider({ children }) {
             throw err;
         } finally {
             setLoading(false);
+            setFetched(true);
         }
     }
 
@@ -51,10 +56,14 @@ export function FilmProvider({ children }) {
         colour: colour,
         era: era,
         isLoading: isLoading,
+        culture: culture,
+        fetched: fetched,
         fetchRecommendations: fetchRecommendations,
         setLoading: setLoading,
         setEra: setEra,
-        setFilmRecommendations: setFilmRecommendations
+        setFilmRecommendations: setFilmRecommendations,
+        setCulture: setCulture,
+        setFetched: setFetched,
     }}>
         { children }
     </filmContext.Provider>)

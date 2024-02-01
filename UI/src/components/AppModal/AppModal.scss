@@ -1,9 +1,10 @@
 @import '../../global.scss';
 
 .modal {
-    color: black;
+    color: white;
     font-weight: 700;
     padding: 0 1rem;
+    background-color: rgb(93, 46, 46);
     
     .flex-top {
         display: flex;

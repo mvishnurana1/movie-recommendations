@@ -1,6 +1,11 @@
 function formatDateToDDMMYYYY(date) {
     // Extract day, month, and year from the Date object
-    let day = String(date.getDate()).padStart(1, '0');
+    let day = String(date.getDate());
+
+    if (day < 10) {
+        day = '0'+day;
+    }
+
     const month = String(date.getMonth() + 1).padStart(2, '0'); // Note: Months are zero-based
     const year = date.getFullYear();
 

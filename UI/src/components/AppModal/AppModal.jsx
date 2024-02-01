@@ -9,7 +9,14 @@ function AppModal({
     isModalOpen,
 }) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';
-    const { backdrop_path, genre_ids, title, release_date, vote_average, overview } = data;
+    const {
+        backdrop_path,
+        genre_ids,
+        release_date,
+        overview,
+        title,
+        vote_average,
+    } = data;
 
     const genereLength = genre_ids.length;
     const releaseDate = new Date(release_date);

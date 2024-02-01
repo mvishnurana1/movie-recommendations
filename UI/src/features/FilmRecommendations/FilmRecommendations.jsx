@@ -12,6 +12,7 @@ function FilmRecommendations() {
       setEra,
       setCulture,
       setFilmRecommendations,
+      setFetched,
       fetched } = useContext(filmContext);
     const [ chosenFilm, setChosenFilm ] = useState(null);
     const [open, setOpen] = useState(false);
@@ -60,6 +61,7 @@ function FilmRecommendations() {
                 setFilmRecommendations([]);
                 setCulture(undefined);
                 setColour(undefined);
+                setFetched(false);
               }}>
                 <span>Try Again</span>
             </button>

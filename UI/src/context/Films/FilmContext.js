@@ -10,6 +10,10 @@ const filmContext = createContext({
     era: [],
     setEra: (x) => {},
     setFilmRecommendations: (x) => {},
+    setCulture: (x) => {},
+    culture: '',
+    fetched: Boolean,
+    setFetched: (x) => {},
 });
 
 export { filmContext };

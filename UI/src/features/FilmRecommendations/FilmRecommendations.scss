@@ -11,9 +11,39 @@
     }
 }
 
+.loader-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%; 
+}
+
 .layout {
     align-items: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.no-results-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+
+    .header-spacing {
+        margin: 0 0 0.8rem 0;
+    }
+
+    .back-button {
+        margin: 1.5rem 0 0 0;
+    }
+
+    .content {
+        padding: 2rem;
+    }
 }

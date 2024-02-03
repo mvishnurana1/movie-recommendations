@@ -61,11 +61,11 @@ function App() {
     color: '#F05941',
   }, {
     color: '#F4CE14',
-  }]
+  }];
 
   const noColour = colour === undefined;
   const showEraQuestion = (era.length === 0) && (colour !== undefined);
-  const showCultureQuestion = (era.length !== 0) && (colour !== undefined) && includeInternationalFilms;
+  const showCultureQuestion = (era.length !== 0) && (colour !== undefined) && !includeInternationalFilms.set;
 
   return (
       <>
@@ -89,8 +89,11 @@ function App() {
         />}
 
         {showCultureQuestion && <ListingQuestion
-          handleClick={(newCulture) => { 
-            setIncludeInternationalFilms(newCulture.text === 'Yes' ? true : false);
+          handleClick={(newCulture) => {
+            setIncludeInternationalFilms({
+              set: true,
+              value: 'Yes',
+            });
             fetchRecommendations();
           }}
           list={ cinemaCultures }

@@ -8,8 +8,10 @@ export function FilmProvider({ children }) {
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [era, setEra] = useState([]);
-    const [includeInternationalFilms, setIncludeInternationalFilms] = useState(true);
-
+    const [includeInternationalFilms, setIncludeInternationalFilms] = useState({
+        set: false,
+        value: 'No',
+    });
     const [fetched, setFetched] = useState(false);
   
     async function fetchRecommendations() {

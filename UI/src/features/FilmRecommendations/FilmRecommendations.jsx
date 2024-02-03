@@ -44,7 +44,10 @@ function FilmRecommendations() {
     function setStatesToDefault() {
       setEra([]);
       setFilmRecommendations([]);
-      setIncludeInternationalFilms(true);
+      setIncludeInternationalFilms({
+        set: false,
+        value: 'No',
+      });
       setColour(undefined);
       setFetched(false);
     }

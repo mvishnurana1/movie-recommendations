@@ -8,7 +8,7 @@ export function FilmProvider({ children }) {
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [era, setEra] = useState([]);
-    const [culture, setCulture] = useState(undefined);
+    const [includeInternationalFilms, setIncludeInternationalFilms] = useState(true);
 
     const [fetched, setFetched] = useState(false);
   
@@ -17,6 +17,9 @@ export function FilmProvider({ children }) {
 
         const greaterDate = era[0];
         const lesserDate = era[1];
+
+        console.log('greater: ', greaterDate);
+        console.log('Lesser: ', lesserDate);
 
         const codes = filmsGenre(colour);
 
@@ -56,13 +59,13 @@ export function FilmProvider({ children }) {
         colour: colour,
         era: era,
         isLoading: isLoading,
-        culture: culture,
+        includeInternationalFilms: includeInternationalFilms,
         fetched: fetched,
         fetchRecommendations: fetchRecommendations,
         setLoading: setLoading,
         setEra: setEra,
         setFilmRecommendations: setFilmRecommendations,
-        setCulture: setCulture,
+        setIncludeInternationalFilms: setIncludeInternationalFilms,
         setFetched: setFetched,
     }}>
         { children }

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
-import { colorPaletteMap, formatDateToDDMMYYYY } from './helper';
+import { formatDateToDDMMYYYY } from './helper';
 import { latest, nintiesCar, retroCar } from './assets';
 import './App.scss';
 
@@ -13,8 +13,8 @@ function App() {
     fetchRecommendations,
     setColour,
     setLoading,
-    culture,
-    setCulture,
+    includeInternationalFilms,
+    setIncludeInternationalFilms,
     setEra,
   } = useContext(filmContext);
   
@@ -41,33 +41,37 @@ function App() {
       width: '200px',
     }];
     
-  const colours = Object.keys(colorPaletteMap);
-
   const cinemaCultures = [{
-      culture: 'bollywood',
-      imgSrc: '',
-      width: '200px',
-    },
-    {
-      culture: 'european', 
-      imgSrc: '',
-      width: '200px',
-    },
-    { 
-      culture: 'hollywood',
-      imgSrc: '',
-      width: '200px',
-    }];
+    color: '#5D9C59',
+    text: 'Yes',
+  }, {
+    color: '#DF2E38',
+    text: 'No',
+  }];
+
+  const colors = [{
+    color: '#22092C',
+  }, {
+    color: '#3E3232',
+  }, {
+    color: '#872341',
+  }, {
+    color: '#BE3144',
+  }, {
+    color: '#F05941',
+  }, {
+    color: '#F4CE14',
+  }]
 
   const noColour = colour === undefined;
   const showEraQuestion = (era.length === 0) && (colour !== undefined);
-  const showCultureQuestion = (era.length !== 0) && (colour !== undefined) && (culture === undefined);
+  const showCultureQuestion = (era.length !== 0) && (colour !== undefined) && includeInternationalFilms;
 
   return (
       <>
         {noColour && <ListingQuestion
-          handleClick={(chosenColour) => setColour(chosenColour)}
-          list={ colours }
+          handleClick={(chosenColour) => setColour(chosenColour.color)}
+          list={ colors }
           questionContent={'Pick a color that matches your mood now'}
           elementClass={'color-questions-button'}
           applyBackGroundColour
@@ -75,7 +79,11 @@ function App() {
         />}
 
         {showEraQuestion && <ListingQuestion
-          handleClick={(gteTime, lteTime) => setEra([gteTime, lteTime])}
+          handleClick={(era) => {
+            console.log('era: ', era);
+            setEra([era.gteTime, era.lteTime]); 
+            // fetchRecommendations(); 
+          }}
           questionContent={'Pick one of the following'}
           list={ cars }
           elementClass={'car-hover'}
@@ -83,11 +91,15 @@ function App() {
         />}
 
         {showCultureQuestion && <ListingQuestion
-          handleClick={(newCulture) => { setCulture(newCulture); fetchRecommendations(); }}
+          handleClick={(newCulture) => { 
+            setIncludeInternationalFilms(JSON.parse(newCulture.text));
+            // fetchRecommendations();
+          }}
           list={ cinemaCultures }
-          questionContent={'Which cultural landscape intrigues you the most'}
+          questionContent={'Include International Films'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
+          applyBackGroundColour
         />}
 
         <FilmRecommendations />

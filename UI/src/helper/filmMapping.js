@@ -1,6 +1,6 @@
 export const coloursTofilm = {
     'purple': ['Fantasy', 'Crime'],
-    'brown': ['History', 'Documentary'],
+    'brown': ['Horror', 'Mystery'],
     'maroon': ['War', 'Western'],
     'red': ['Romance', 'Drama'],
     'orange': ['Adventure', 'Animation'],

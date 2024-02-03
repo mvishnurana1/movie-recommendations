@@ -10,7 +10,7 @@ function FilmRecommendations() {
       isLoading,
       setColour,
       setEra,
-      setCulture,
+      setIncludeInternationalFilms,
       setFilmRecommendations,
       setFetched,
       fetched } = useContext(filmContext);
@@ -41,6 +41,14 @@ function FilmRecommendations() {
       setChosenFilm(film);
     }
 
+    function setStatesToDefault() {
+      setEra([]);
+      setFilmRecommendations([]);
+      setIncludeInternationalFilms(undefined);
+      setColour(undefined);
+      setFetched(false);
+    }
+
     function noResultsReturned() {
       return <div className='no-results-container'>
         <div className='content'>
@@ -56,13 +64,7 @@ function FilmRecommendations() {
           </div>
           <div className='gl-horizontally-centre main-button'>
             <button className='button-no-native-style back-button'
-              onClick={() => {
-                setEra([]);
-                setFilmRecommendations([]);
-                setCulture(undefined);
-                setColour(undefined);
-                setFetched(false);
-              }}>
+              onClick={() => setStatesToDefault()}>
                 <span>Try Again</span>
             </button>
           </div>
@@ -78,12 +80,7 @@ function FilmRecommendations() {
             </div>
             <div>
               <button className='button-no-native-style back-button'
-                onClick={() => {
-                  setEra([]);
-                  setFilmRecommendations([]);
-                  setColour(undefined);
-                  
-                }}>
+                onClick={() => setStatesToDefault()}>
                   <span>Back To Questions</span>
                    </button>
             </div>

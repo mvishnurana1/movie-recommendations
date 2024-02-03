@@ -16,25 +16,19 @@ function ListQuestion({
       </div>
         <div className='gl-horizontally-centre'>
           <div className={`${buttonLayout} options-listing`}>
-                {imgListing ? list.map((choice, index) =>
-                <button
-                  key={ index }
-                  className={'button-no-native-style '+ elementClass}>
-                    <img 
-                      width={choice.width}
-                      src={choice.imgSrc}
-                      alt={choice.alt}
-                      onClick={() => handleClick(choice.gteTime, choice.lteTime)}
-                    />
-                </button>
-                ) : list?.map((choice, index) => 
-                  <button
-                    className={elementClass}
-                    key={ index }
-                    style={{backgroundColor: applyBackGroundColour ? `${ choice }` : ''}}
-                    onClick={() => handleClick(choice)}
-                  />
-                )}
+              {list.map((choice, index) => <button
+                key={ index }
+                onClick={() => handleClick(choice)}
+                style={{backgroundColor: applyBackGroundColour ? `${ choice.color }` : ''}}
+                className={'button-no-native-style '+ elementClass}>
+                 {imgListing && <img 
+                    width={choice.width}
+                    src={choice.imgSrc}
+                    alt={choice.alt}
+                  />}
+                  {/* { choice?.text } */}
+              </button>
+              )}
           </div>
         </div>
     </div>

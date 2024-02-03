@@ -11,7 +11,7 @@ function Card({
     posterPath,
     filmRating,
     children,
-    onClick
+    onClick,
 }) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';
 
@@ -24,7 +24,12 @@ function Card({
             onClick={() => onClick(film)}
             className={`card-body ${cardMainClass}`} 
             style={cardStyles}>
-            <img className={`${ImgclassNames}`} src={ posterPath ? `${imageBaseUrl}${posterPath}` : `${blankFilm}`} alt="" />
+            <img 
+                alt={`${originalTitle}-poster`}
+                className={`${ImgclassNames}`} 
+                loading="lazy"
+                src={ posterPath ? `${imageBaseUrl}${posterPath}` : `${blankFilm}`}
+            />
             <div className='card-footer'>
                 {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
             </div>

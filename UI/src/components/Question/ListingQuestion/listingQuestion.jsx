@@ -26,7 +26,6 @@ function ListQuestion({
                     src={choice.imgSrc}
                     alt={choice.alt}
                   />}
-                  {/* { choice?.text } */}
               </button>
               )}
           </div>

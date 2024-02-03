@@ -80,9 +80,7 @@ function App() {
 
         {showEraQuestion && <ListingQuestion
           handleClick={(era) => {
-            console.log('era: ', era);
             setEra([era.gteTime, era.lteTime]); 
-            // fetchRecommendations(); 
           }}
           questionContent={'Pick one of the following'}
           list={ cars }
@@ -92,8 +90,8 @@ function App() {
 
         {showCultureQuestion && <ListingQuestion
           handleClick={(newCulture) => { 
-            setIncludeInternationalFilms(JSON.parse(newCulture.text));
-            // fetchRecommendations();
+            setIncludeInternationalFilms(newCulture.text === 'Yes' ? true : false);
+            fetchRecommendations();
           }}
           list={ cinemaCultures }
           questionContent={'Include International Films'}

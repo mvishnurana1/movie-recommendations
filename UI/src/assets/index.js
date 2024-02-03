@@ -11,6 +11,7 @@ import loader from './files/pulse.gif';
 import blankFilm from './files/blank-film.webp';
 import film from './files/film.gif';
 import globe from './files/wired-globe.gif';
+import linkUnlink from './files/link-unlink.gif';
 
 export {
     amazon,
@@ -20,6 +21,7 @@ export {
     googlePlay,
     latest,
     loader,
+    linkUnlink,
     netflix,
     nintiesCar,
     poster,

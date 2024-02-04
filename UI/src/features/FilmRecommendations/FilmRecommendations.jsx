@@ -96,7 +96,7 @@ function FilmRecommendations() {
               onClick={() => handleClick(film)}
               film={ film }
               cardMainClass="movie-card-hover-effect"
-              originalTitle={ film.original_title }
+              originalTitle={ film.title }
               filmRating={ film.vote_average }
               ImgclassNames='card-main-img'
               key={ film.id }

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
-import { formatDateToDDMMYYYY } from './helper';
+import { formatDateToDDMMYYYY, likeColorPallets } from './helper';
 import { latest, nintiesCar, retroCar } from './assets';
 import './App.scss';
 
@@ -16,6 +16,7 @@ function App() {
     includeInternationalFilms,
     setIncludeInternationalFilms,
     setEra,
+    fetched,
   } = useContext(filmContext);
   
   const cars = [
@@ -49,7 +50,7 @@ function App() {
     text: 'No',
   }];
 
-  const colors = [{
+  let colors = [{
     color: '#22092C',
   }, {
     color: '#3E3232',
@@ -63,16 +64,37 @@ function App() {
     color: '#F4CE14',
   }];
 
-  const noColour = colour === undefined;
-  const showEraQuestion = (era.length === 0) && (colour !== undefined);
-  const showCultureQuestion = (era.length !== 0) && (colour !== undefined) && !includeInternationalFilms.set;
+  const showColourQuestion = colour === undefined;
+  const showEraQuestion = (era.length === 0) && !showColourQuestion;
+  const showCultureQuestion = (!showEraQuestion) && (!showColourQuestion) && !includeInternationalFilms.set;
+
+  let konHai = [];
+  const specificColours = likeColorPallets[colour];
+
+  const showSpecificColourQuestion = (era.length !== 0) 
+                                  && colour
+                                  && specificColours
+                                  && includeInternationalFilms.set
+                                  && !showCultureQuestion;
+
+  if (colour && specificColours) {
+    let specifics = specificColours?.map((value) => {
+      return {
+        ['color']: value
+      }
+    });
+    
+    const noColour = [...specifics];
+    
+    konHai = noColour;
+  }
 
   return (
       <>
-        {noColour && <ListingQuestion
+        {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}
           list={ colors }
-          questionContent={'Pick a color that matches your mood now'}
+          questionContent={'Pick a colour that matches your mood now'}
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
@@ -94,13 +116,25 @@ function App() {
               set: true,
               value: 'Yes',
             });
-            fetchRecommendations();
           }}
           list={ cinemaCultures }
           questionContent={'Include International Films'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
           applyBackGroundColour
+        />}
+        
+        {showSpecificColourQuestion && <ListingQuestion
+          handleClick={(chosenColour) => {
+            console.log(chosenColour);
+            setColour(chosenColour.color);
+            fetchRecommendations(); 
+          }}
+          list={ konHai }
+          questionContent={'Let\'s pick a more specific mood colour'}
+          elementClass={'color-questions-button'}
+          applyBackGroundColour
+          buttonLayout={'coloured-buttons-style'}
         />}
 
         <FilmRecommendations />

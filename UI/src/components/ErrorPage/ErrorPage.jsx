@@ -5,7 +5,8 @@ function ErrorPage() {
 
     return <div className='error-page-container'>
               <img src={ linkUnlink } alt='film-gif' width={'200px'} />
-              <span>Something just went wrong...! Please refresh the browser</span>
+              <span>Something just went wrong...!</span> 
+              <span>Please refresh the browser</span>
           </div>
 }
 

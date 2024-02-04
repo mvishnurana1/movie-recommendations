@@ -3,8 +3,10 @@
 .modal {
     color: white;
     font-weight: 700;
-    padding: 0 1rem;
-    background-color: rgb(93, 46, 46);
+    font-family: 'Roboto', sans-serif;
+    padding: 2rem 0.5rem;
+    background-color: $white;
+    color: $dark;
     
     .flex-top {
         display: flex;

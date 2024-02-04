@@ -40,38 +40,42 @@ function AppModal({
                 </button>
             </div>
 
-            <div className='gl-horizontally-centre'> 
+            <div className='gl-horizontally-centre'>
                 <img src={ backdrop_path ? `${imageBaseUrl}${backdrop_path}` : `${blankFilm}`} alt={title+'-movie-poster'} width="50%" />
             </div>
 
             <div className='half-width' style={{ width: '50%' }}>
                 <div className='gl-horizontal-space-between' style={{ marginTop: '1rem' }}>
-                    <span>
+                    <span style={{fontSize: '2vw'}}>
                         {title}
                     </span>
 
-                    <span>
+                    <span style={{fontSize: '1.2vw'}}>
                         {numberToMonth(releaseDate.getMonth() + 1)}, {releaseDate.getFullYear()}
                     </span>
                 </div>
 
-                <div className='gl-horizontal-space-between' style={{ marginTop: '1rem' }}>
+                <div className='gl-horizontal-space-between' style={{ marginTop: '1rem', fontSize: '1.2vw' }}>
                     <div style={{ width: '70%' }}>
                         { genre_ids.map((id, index) => <span key={id}>
-                            {`${genreIdToGenreNameMapping[id]}`} 
-                            { isLastElement(index) ? '': <span> &#x2022;</span> } 
+                            {`${genreIdToGenreNameMapping[id]} `} 
+                            { isLastElement(index) ? ' ': <span> &#x2022; </span> } 
                         </span>) }
                     </div>
 
-                    <div>
-                        <img src={star} alt="star-icon" width="12.8px" height="12.8px" />
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                    }}>
+                        <img src={star} alt="star-icon" width="25px" height="25px" />
                         <span>
-                            {vote_average}
+                            { vote_average.toFixed(1) }
                         </span>
                     </div>
                 </div>
 
-                <div style={{ width: '70%', marginTop: '1rem' }}>
+                <div style={{ marginTop: '1rem' }}>
                     {overview}
                 </div>
             </div>

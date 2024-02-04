@@ -16,6 +16,26 @@ export const colorPaletteMap = {
     '#F4CE14': 'yellow',
 };
 
+export const likeColorPallets = {
+    // Purple
+    '#22092C': ['#3C0753', '#6C22A6'],
+
+    // Brown:
+    '#3E3232': ['#6B240C', '#76453B'],
+    
+    // Maroon:
+    '#872341': ['#561C24', '#6D2932'],
+    
+    // Red:
+    '#BE3144': ['#B80000', '#820300'],
+    
+    // Orange:
+    '#F05941': ['#E36414', '#FB8B24'],
+    
+    // Yellow:
+    '#F4CE14': ['#FF9843', '#F8E559'],
+}
+
 export const genreList = [
     'Action',
     'Adventure',

@@ -34,13 +34,9 @@ function Card({
                 {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
             </div>
             <div className='card-footer'>
-                <img src={star} alt="" width="12.8px" height="12.8px" />
                 <span>{ filmRating.toFixed(1) }</span>
+                <img src={star} alt="" width="12.8px" height="12.8px" />
             </div>
-            <div className='gl-horizontally-centre'>
-                <CardFooter availableOn={filmInfo.availableOn} />
-            </div>
-            {children}
         </div>
     </>
 }

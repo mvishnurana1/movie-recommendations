@@ -20,7 +20,7 @@
     }
 
     .movie-title {
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 400;
         width: 225px;
         white-space: nowrap;
@@ -41,8 +41,8 @@
 
     .card-footer {
         display: flex;
-        justify-content: center;
-        margin: 10px 0 0 10px;
+        gap: 0.5rem;
+        margin: 10px;
     }
 
     .centre-icons {

@@ -18,7 +18,9 @@ app.get('/recommendations', async (req, res) => {
     const genre_code = req.query.genre_code;
 
     const url = 
-    `${moviesEndPoint}?api_key=${secrets.api_key}&language=en-US&sort_by=popularity.desc&page=1&primary_release_date.lte=${releaseDateLte}&primary_release_date.gte=${releaseDateGte}&with_genres=${genre_code}`
+    `${moviesEndPoint}?api_key=${secrets.api_key}&include_video=true&sort_by=vote_average.desc
+    &sort_by=popularity.desc&page=1&primary_release_date.lte=${releaseDateLte}&primary_release_date.gte=${releaseDateGte}
+    &with_genres=${genre_code}&vote_count.gte=100&with_original_language=hi`
     const options = {
       method: 'GET',
       headers: {

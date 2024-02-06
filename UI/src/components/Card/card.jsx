@@ -31,7 +31,7 @@ function Card({
                 src={ posterPath ? `${imageBaseUrl}${posterPath}` : `${blankFilm}`}
             />
             <div style={{ margin: '0 10px' }}>
-                {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
+                {originalTitle && <span className='movie-title' title={ originalTitle }>{ originalTitle }</span>}
             </div>
 
             <div className='card-footer'>

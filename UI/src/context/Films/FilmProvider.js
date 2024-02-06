@@ -28,6 +28,7 @@ export function FilmProvider({ children }) {
         try {
             const response = await fetch(`${url}/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
             const data = await response.json();
+
             setFilmRecommendations(data);
         } catch (err) {
             throw err;

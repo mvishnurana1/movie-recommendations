@@ -30,18 +30,14 @@ function Card({
                 loading="lazy"
                 src={ posterPath ? `${imageBaseUrl}${posterPath}` : `${blankFilm}`}
             />
-            <div className='card-footer'>
+            <div style={{ margin: '0 10px' }}>
                 {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
             </div>
+
             <div className='card-footer'>
-                <span>{ filmRating?.toFixed(1) }</span>
-                <img src={star} alt="" width="12.8px" height="12.8px" />
                 <span>{ filmRating.toFixed(1) }</span>
+                <img src={star} alt="" width="12.8px" height="12.8px" />
             </div>
-            <div className='gl-horizontally-centre'>
-                <CardFooter availableOn={filmInfo.availableOn} />
-            </div>
-            {children}
         </div>
     </>
 }

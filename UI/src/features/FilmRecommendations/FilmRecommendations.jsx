@@ -79,7 +79,7 @@ function FilmRecommendations() {
         <>
           <div className={noResult ? 'hide': 'layout'}>
             <div>
-              <h2 className='gl-header-level-two'>Recommendations For You</h2>
+              <h2 className='gl-header-level-two' style={{ textAlign: 'center' }}>Recommendations For You</h2>
             </div>
             <div>
               <button className='button-no-native-style back-button'

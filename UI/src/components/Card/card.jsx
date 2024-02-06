@@ -34,6 +34,7 @@ function Card({
                 {originalTitle && <span className='movie-title'>{ originalTitle }</span>}
             </div>
             <div className='card-footer'>
+                <span>{ filmRating?.toFixed(1) }</span>
                 <img src={star} alt="" width="12.8px" height="12.8px" />
                 <span>{ filmRating.toFixed(1) }</span>
             </div>

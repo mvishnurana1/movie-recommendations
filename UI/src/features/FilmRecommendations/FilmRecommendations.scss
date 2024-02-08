@@ -29,20 +29,25 @@
 }
 
 .fab-button {
-    --_viewport-margin: 2.5vmin;
-
-    position: fixed;
-    z-index: var(--layer-1);
-  
-    inset-block: auto var(--_viewport-margin);
-    inset-inline: auto var(--_viewport-margin);
-
+    align-items: center;
     background-color: pink;
     border: none;
     border-radius: 50%;
-    padding: 0;
+    display: flex;
+
+    --_viewport-margin: 2.5vmin;
+
+    position: fixed;
+    
+    inset-block: auto var(--_viewport-margin);
+    inset-inline: auto var(--_viewport-margin);
+    
+    padding: 1rem;
     font: inherit;
     cursor: pointer;
+    
+    justify-content: center;
+    z-index: var(--layer-1);
 }
 
 .no-results-container {

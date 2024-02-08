@@ -26,10 +26,10 @@ app.get('/recommendations', async (req, res) => {
     const russianFilms = await fetchForeignFilms(releaseDateLte, releaseDateGte, genre_code, 'ru');
 
     films = [
-      ...hindiFilms,
       ...germanFilms,
       ...japaneseFilms,
       ...spanishFilms,
+      ...hindiFilms,
       ...koreanFilms,
       ...englishFilms,
       ...russianFilms,

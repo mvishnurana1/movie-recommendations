@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AppModal, Card, Loader } from '../../components';
 import { filmContext } from '../../context';
-import { film, globe } from '../../assets';
+import { arrow, globe } from '../../assets';
 import './FilmRecommendations.scss';
 
 function FilmRecommendations() {
@@ -14,14 +14,26 @@ function FilmRecommendations() {
       setFilmRecommendations,
       setFetched,
       fetched } = useContext(filmContext);
+
     const [ chosenFilm, setChosenFilm ] = useState(null);
-    const [open, setOpen] = useState(false);
+    const [ open, setOpen ] = useState(false);
+    const [ isScrollingDown, setIsScrollingDown ] = useState(false);
     
     const error = filmRecommendations === null;
     const noResult = filmRecommendations?.length === 0;
 
+    useEffect(() => {
+      const handleScroll = () => {
+        const currentScrollTop = document.documentElement.scrollTop;
+        setIsScrollingDown(currentScrollTop > 0);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     if (!filmRecommendations) {
-        return <></>
+      return <></>
     }
 
     if (error) {
@@ -85,7 +97,7 @@ function FilmRecommendations() {
               <button className='button-no-native-style back-button'
                 onClick={() => setStatesToDefault()}>
                   <span>Back To Questions</span>
-                   </button>
+              </button>
             </div>
           </div>
 
@@ -102,6 +114,20 @@ function FilmRecommendations() {
               key={ film.id }
               posterPath={ film.poster_path ?? '' }
               />)}
+
+              <div>
+                {isScrollingDown && <button className='fab-button'>
+                  <img 
+                    width='50px'
+                    src={arrow}
+                    onClick={() => {
+                      document.body.scrollTop = 0; // For Safari
+                      document.documentElement.scrollTop = 0;
+                    }}
+                    alt='arrow-top'
+                  />
+                </button>}
+              </div>
           </div>
 
           {open && <AppModal

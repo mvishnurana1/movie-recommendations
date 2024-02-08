@@ -10,7 +10,6 @@ function Card({
     originalTitle,
     posterPath,
     filmRating,
-    children,
     onClick,
 }) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';

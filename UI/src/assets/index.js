@@ -1,3 +1,4 @@
+import arrow from './files/arrowhead-up.png';
 import amazon from './files/prime-videos.ico';
 import googlePlay from './files/Google_Play-Logo.wine.svg';
 import netflix from './files/netflix.svg';
@@ -15,6 +16,7 @@ import linkUnlink from './files/link-unlink.gif';
 
 export {
     amazon,
+    arrow,
     blankFilm,
     film,
     globe,

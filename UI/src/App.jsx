@@ -40,7 +40,8 @@ function App() {
       imgSrc: latest,
       lteTime: '1980-01-01',
       width: '200px',
-    }];
+    }
+  ];
     
   const cinemaCultures = [{
     color: '#5D9C59',

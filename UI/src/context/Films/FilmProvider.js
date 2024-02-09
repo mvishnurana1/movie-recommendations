@@ -28,8 +28,11 @@ export function FilmProvider({ children }) {
         try {
             const response = await fetch(`${url}/recommendations?releaseDateGte=${lesserDate}&releaseDateLte=${greaterDate}&genre_code=${codeListing}`);
             const data = await response.json();
-
+            // const list = data.results;
             setFilmRecommendations(data);
+
+            console.log('DATA: ', data);
+            // localStorage.setItem('fetched_films', JSON.stringify(list));
         } catch (err) {
             throw err;
         } finally {

@@ -12,11 +12,9 @@ function App() {
     era,
     fetchRecommendations,
     setColour,
-    setLoading,
     includeInternationalFilms,
     setIncludeInternationalFilms,
     setEra,
-    fetched,
   } = useContext(filmContext);
   
   const cars = [

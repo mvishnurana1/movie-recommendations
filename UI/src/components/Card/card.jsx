@@ -1,4 +1,3 @@
-import CardFooter from '../CardFooter/cardFooter';
 import { star, blankFilm } from '../../assets';
 import './card.scss';
 
@@ -13,10 +12,6 @@ function Card({
     onClick,
 }) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';
-
-    const filmInfo = {
-        availableOn: ['netflix', 'youtube', 'primeVideos', 'googlePlayMovies']
-    };
 
     return <>
         <div

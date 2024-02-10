@@ -31,7 +31,6 @@ export function FilmProvider({ children }) {
             // const list = data.results;
             setFilmRecommendations(data);
 
-            console.log('DATA: ', data);
             // localStorage.setItem('fetched_films', JSON.stringify(list));
         } catch (err) {
             throw err;

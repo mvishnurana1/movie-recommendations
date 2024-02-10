@@ -124,7 +124,6 @@ function App() {
         
         {showSpecificColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => {
-            console.log(chosenColour);
             setColour(chosenColour.color);
             fetchRecommendations(); 
           }}

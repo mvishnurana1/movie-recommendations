@@ -16,7 +16,7 @@ function App() {
     setIncludeInternationalFilms,
     setEra,
   } = useContext(filmContext);
-  
+
   const cars = [
     {
       alt:'retro-car',
@@ -96,17 +96,20 @@ function App() {
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
-        />}
+          />}
 
-        {showEraQuestion && <ListingQuestion
-          handleClick={(era) => {
-            setEra([era.gteTime, era.lteTime]); 
-          }}
-          questionContent={'Pick one of the following'}
-          list={ cars }
-          elementClass={'car-hover'}
-          imgListing
-        />}
+        {showEraQuestion && 
+            <ListingQuestion
+            handleClick={(era) => {
+              setEra([era.gteTime, era.lteTime]); 
+            }}
+            questionContent={'Choose one for the Era movies'}
+            list={ cars }
+            elementClass={'car-hover'}
+            imgListing
+            promptMessage={'Okay, so you\'re feeling like'}
+          />
+        }
 
         {showCultureQuestion && <ListingQuestion
           handleClick={(newCulture) => {
@@ -119,6 +122,7 @@ function App() {
           questionContent={'Include International Films'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
+          promptMessage={'Well, that\s cool!'}
           applyBackGroundColour
         />}
         
@@ -132,6 +136,7 @@ function App() {
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
+          promptMessage={'Okay, Last One!'}
         />}
 
         <FilmRecommendations />

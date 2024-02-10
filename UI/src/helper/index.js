@@ -5,6 +5,7 @@ import {
     genreList,
     genreIdToGenreNameMapping,
     likeColorPallets,
+    likeColorsFilms,
 } from './filmMapping';
 
 import {  addYearsToDate, formatDateToDDMMYYYY, numberToMonth } from './date';
@@ -19,4 +20,5 @@ export {
     genreList,
     genreIdToGenreNameMapping,
     likeColorPallets,
+    likeColorsFilms,
 };

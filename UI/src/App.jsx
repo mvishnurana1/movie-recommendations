@@ -2,8 +2,18 @@ import { useContext } from 'react';
 import { ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
-import { formatDateToDDMMYYYY, likeColorPallets } from './helper';
-import { latest, nintiesCar, retroCar } from './assets';
+import { 
+  colorPaletteMap,
+  coloursTofilm,
+  formatDateToDDMMYYYY,
+  likeColorPallets,
+  likeColorsFilms
+} from './helper';
+import {
+  latest,
+  nintiesCar,
+  retroCar,
+} from './assets';
 import './App.scss';
 
 function App() {
@@ -87,6 +97,16 @@ function App() {
     konHai = noColour;
   }
 
+  let filmGenre, filmGenres;
+
+  if (colour && showEraQuestion) {
+    let colourName = colorPaletteMap[colour];
+
+    filmGenre = coloursTofilm[colourName]
+
+    filmGenres = filmGenre.map(x => x + '').join(' & ');
+  }
+
   return (
       <>
         {showColourQuestion && <ListingQuestion
@@ -98,8 +118,7 @@ function App() {
           buttonLayout={'coloured-buttons-style'}
           />}
 
-        {showEraQuestion && 
-            <ListingQuestion
+        {showEraQuestion && <ListingQuestion
             handleClick={(era) => {
               setEra([era.gteTime, era.lteTime]); 
             }}
@@ -107,7 +126,7 @@ function App() {
             list={ cars }
             elementClass={'car-hover'}
             imgListing
-            promptMessage={'Okay, so you\'re feeling like'}
+            promptMessage={'Okay! So you\'re feeling like '+ filmGenres}
           />
         }
 

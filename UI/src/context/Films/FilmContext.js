@@ -15,6 +15,8 @@ const filmContext = createContext({
     fetched: Boolean,
     setFetched: (x) => {},
     topRatedFilms: [],
+    start: Boolean,
+    setStarted: (x) => {},
 });
 
 export { filmContext };

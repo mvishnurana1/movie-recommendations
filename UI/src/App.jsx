@@ -26,6 +26,7 @@ function App() {
     includeInternationalFilms,
     setIncludeInternationalFilms,
     setEra,
+    start,
   } = useContext(filmContext);
 
   const cars = [
@@ -73,9 +74,9 @@ function App() {
     color: '#F4CE14',
   }];
 
-  const showColourQuestion = colour === undefined;
-  const showEraQuestion = (era.length === 0) && !showColourQuestion;
-  const showCultureQuestion = (!showEraQuestion) && (!showColourQuestion) && !includeInternationalFilms.set;
+  const showColourQuestion = (colour === undefined) && start;
+  const showEraQuestion = (era.length === 0) && !showColourQuestion && start;
+  const showCultureQuestion = (!showEraQuestion) && (!showColourQuestion) && !includeInternationalFilms.set && start;
 
   let konHai = [];
   const specificColours = likeColorPallets[colour];
@@ -110,7 +111,7 @@ function App() {
 
   return (
       <>
-        <HomePage />
+        {!start && <HomePage />}
 
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}

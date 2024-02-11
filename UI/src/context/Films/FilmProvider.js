@@ -92,6 +92,8 @@ export function FilmProvider({ children }) {
         setIncludeInternationalFilms: setIncludeInternationalFilms,
         setFetched: setFetched,
         topRatedFilms: topRatedFilms,
+        start: start,
+        setStarted: setStarted,
     }}>
         { children }
     </filmContext.Provider>)

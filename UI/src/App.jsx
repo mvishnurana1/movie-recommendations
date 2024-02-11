@@ -14,6 +14,7 @@ import {
   nintiesCar,
   retroCar,
 } from './assets';
+import { HomePage } from './pages';
 import './App.scss';
 
 function App() {
@@ -109,6 +110,8 @@ function App() {
 
   return (
       <>
+        <HomePage />
+
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}
           list={ colors }

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { filmContext } from "./FilmContext";
 import { url } from '../url';
 import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
 export function FilmProvider({ children }) {
     const [colour, setColour] = useState(undefined);
+    const [start, setStarted] = useState(false);
+    const [topRatedFilms, setTopRatedFilms] = useState([]);
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
     const [era, setEra] = useState([]);
@@ -13,6 +15,27 @@ export function FilmProvider({ children }) {
         set: false,
         value: 'No',
     });
+
+    async function fetchTopRatedFilms() {
+        const response = await fetch(`${url}/top-rated`);
+        const data = await response.json();
+        const list = data.results;
+        
+        setTopRatedFilms(list);
+    }
+
+    useEffect(() => {
+        try {
+            let call = true;
+
+            if (call) {
+                fetchTopRatedFilms();
+                call = false;
+            }
+        } catch (err) {
+            console.error('Error: ', err);
+        }
+    }, []);
   
     async function fetchRecommendations() {
         setLoading(true);
@@ -68,6 +91,7 @@ export function FilmProvider({ children }) {
         setFilmRecommendations: setFilmRecommendations,
         setIncludeInternationalFilms: setIncludeInternationalFilms,
         setFetched: setFetched,
+        topRatedFilms: topRatedFilms,
     }}>
         { children }
     </filmContext.Provider>)

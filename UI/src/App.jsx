@@ -2,8 +2,19 @@ import { useContext } from 'react';
 import { ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
-import { formatDateToDDMMYYYY, likeColorPallets } from './helper';
-import { latest, nintiesCar, retroCar } from './assets';
+import { 
+  colorPaletteMap,
+  coloursTofilm,
+  formatDateToDDMMYYYY,
+  likeColorPallets,
+  likeColorsFilms
+} from './helper';
+import {
+  latest,
+  nintiesCar,
+  retroCar,
+} from './assets';
+import { HomePage } from './pages';
 import './App.scss';
 
 function App() {
@@ -15,8 +26,9 @@ function App() {
     includeInternationalFilms,
     setIncludeInternationalFilms,
     setEra,
+    start,
   } = useContext(filmContext);
-  
+
   const cars = [
     {
       alt:'retro-car',
@@ -62,9 +74,9 @@ function App() {
     color: '#F4CE14',
   }];
 
-  const showColourQuestion = colour === undefined;
-  const showEraQuestion = (era.length === 0) && !showColourQuestion;
-  const showCultureQuestion = (!showEraQuestion) && (!showColourQuestion) && !includeInternationalFilms.set;
+  const showColourQuestion = (colour === undefined) && start;
+  const showEraQuestion = (era.length === 0) && !showColourQuestion && start;
+  const showCultureQuestion = (!showEraQuestion) && (!showColourQuestion) && !includeInternationalFilms.set && start;
 
   let konHai = [];
   const specificColours = likeColorPallets[colour];
@@ -87,8 +99,20 @@ function App() {
     konHai = noColour;
   }
 
+  let filmGenre, filmGenres;
+
+  if (colour && showEraQuestion) {
+    let colourName = colorPaletteMap[colour];
+
+    filmGenre = coloursTofilm[colourName]
+
+    filmGenres = filmGenre.map(x => x + '').join(' & ');
+  }
+
   return (
       <>
+        {!start && <HomePage />}
+
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}
           list={ colors }
@@ -96,17 +120,19 @@ function App() {
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
-        />}
+          />}
 
         {showEraQuestion && <ListingQuestion
-          handleClick={(era) => {
-            setEra([era.gteTime, era.lteTime]); 
-          }}
-          questionContent={'Pick one of the following'}
-          list={ cars }
-          elementClass={'car-hover'}
-          imgListing
-        />}
+            handleClick={(era) => {
+              setEra([era.gteTime, era.lteTime]); 
+            }}
+            questionContent={'Choose one for the Era movies'}
+            list={ cars }
+            elementClass={'car-hover'}
+            imgListing
+            promptMessage={'Okay! So you\'re feeling like '+ filmGenres}
+          />
+        }
 
         {showCultureQuestion && <ListingQuestion
           handleClick={(newCulture) => {
@@ -119,6 +145,7 @@ function App() {
           questionContent={'Include International Films'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
+          promptMessage={'Well, that\s cool!'}
           applyBackGroundColour
         />}
         
@@ -132,6 +159,7 @@ function App() {
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
+          promptMessage={'Okay, Last One!'}
         />}
 
         <FilmRecommendations />

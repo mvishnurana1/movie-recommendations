@@ -7,11 +7,13 @@ function ListQuestion({
   handleClick,
   applyBackGroundColour,
   buttonLayout,
-  imgListing
+  imgListing,
+  promptMessage,
 }) {
   return <>
     <div className={'vertically-center'}>
-      <div className='gl-horizontally-centre'>
+      <div style={{display:'flex', flexDirection:'column', alignItems: 'center'}}>
+        <h2>{ promptMessage }</h2>
         <h2 className='gl-header-level-two'>{ questionContent }</h2>
       </div>
         <div className='gl-horizontally-centre'>

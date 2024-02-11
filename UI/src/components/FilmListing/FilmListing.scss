@@ -1,0 +1,12 @@
+@import '../../global.scss';
+
+
+.background-layout {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow: -moz-scrollbars-horizontal;
+    background-color: pink;
+}

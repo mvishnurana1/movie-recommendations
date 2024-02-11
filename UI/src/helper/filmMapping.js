@@ -36,6 +36,32 @@ export const likeColorPallets = {
     '#F4CE14': ['#FF9843', '#F8E559'],
 }
 
+export const likeColorsFilms = {
+    // Purple:
+    '#3C0753': 'Fantasy',
+    '#6C22A6': 'Crime',
+
+    // Brown:
+    '#6B240C': 'Horror',
+    '#76453B': 'Mystery',
+
+    // Maroon
+    '#561C24': 'War',
+    '#6D2932': 'Western',
+
+    // Red
+    '#B80000': 'Romance',
+    '#820300': 'Drama',
+
+    // Orange
+    '#E36414': 'Adventure',
+    '#FB8B24': 'Animation',
+
+    // Yellow
+    '#FF9843': 'Music',
+    '#F8E559': 'Comedy',
+};
+
 export const genreList = [
     'Action',
     'Adventure',

@@ -25,7 +25,7 @@ function FilmRecommendations() {
     useEffect(() => {
       const handleScroll = () => {
         const currentScrollTop = document.documentElement.scrollTop;
-        setIsScrollingDown(currentScrollTop > 0);
+        setIsScrollingDown(currentScrollTop > 250);
       };
   
       window.addEventListener('scroll', handleScroll);

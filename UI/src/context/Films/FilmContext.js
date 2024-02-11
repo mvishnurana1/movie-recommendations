@@ -14,6 +14,9 @@ const filmContext = createContext({
     includeInternationalFilms: Boolean,
     fetched: Boolean,
     setFetched: (x) => {},
+    topRatedFilms: [],
+    start: Boolean,
+    setStarted: (x) => {},
 });
 
 export { filmContext };

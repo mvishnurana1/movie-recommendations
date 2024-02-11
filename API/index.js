@@ -38,6 +38,10 @@ app.get('/recommendations', async (req, res) => {
     res.send(films);
 });
 
+app.get('/top-rated', async (_req, res) => {
+  res.send(topRated);
+});
+
 async function fetchForeignFilms(releaseDateLte, releaseDateGte, genre_code, lang) {
   const url = getUrlWithArgs(releaseDateLte, releaseDateGte, genre_code, lang);
   const options = {

@@ -27,6 +27,7 @@ export function FilmProvider({ children }) {
     useEffect(() => {
         try {
             let call = true;
+            setLoading(true);
 
             if (call) {
                 fetchTopRatedFilms();
@@ -34,6 +35,8 @@ export function FilmProvider({ children }) {
             }
         } catch (err) {
             console.error('Error: ', err);
+        } finally {
+            setLoading(false);
         }
     }, []);
   

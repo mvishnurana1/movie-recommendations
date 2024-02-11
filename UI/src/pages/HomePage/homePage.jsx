@@ -1,10 +1,17 @@
 import { useContext } from 'react';
 import { filmContext } from '../../context';
-import { FilmListing } from './../../components/FilmListing/FilmListing';
+import { FilmListing, Loader } from './../../components';
 import './homePage.scss';
 
 function HomePage() {
-    const { setStarted } = useContext(filmContext);
+    const { setStarted, isLoading } = useContext(filmContext);
+
+    if (isLoading) {
+    return <div className='loader-container'>
+        <Loader />
+    </div>
+    }
+
     return <>
         <div className='page'>
             <div className='img-listing'>

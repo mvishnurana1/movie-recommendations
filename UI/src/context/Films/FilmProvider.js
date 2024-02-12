@@ -15,6 +15,8 @@ export function FilmProvider({ children }) {
         set: false,
         value: 'No',
     });
+    const [currentDisplay, setCurrentDisplay] = useState('get-started');
+    const [seen, setSeen] = useState([]);
 
     async function fetchTopRatedFilms() {
         const response = await fetch(`${url}/top-rated`);
@@ -27,6 +29,9 @@ export function FilmProvider({ children }) {
     useEffect(() => {
         const cachedFilms = JSON.parse(localStorage.getItem('fetched_films')) ?? [];
         setFilmRecommendations(cachedFilms);
+
+        const films = JSON.parse(localStorage.getItem('seen')) ?? [];
+        setSeen(films);
 
         try {
             let call = true;
@@ -100,6 +105,10 @@ export function FilmProvider({ children }) {
         topRatedFilms: topRatedFilms,
         start: start,
         setStarted: setStarted,
+        currentDisplay: currentDisplay,
+        setCurrentDisplay: setCurrentDisplay,
+        seen: seen,
+        setSeen: setSeen,
     }}>
         { children }
     </filmContext.Provider>)

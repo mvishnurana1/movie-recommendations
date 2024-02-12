@@ -10,8 +10,13 @@ import {
 
 import {  addYearsToDate, formatDateToDDMMYYYY, numberToMonth } from './date';
 
+import { cars, cinemaCultures, colors } from './ui-data';
+
 export {
     addYearsToDate,
+    cars,
+    colors,
+    cinemaCultures,
     coloursTofilm,
     colorPaletteMap,
     formatDateToDDMMYYYY,

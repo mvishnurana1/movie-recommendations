@@ -3,16 +3,9 @@ import { ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
 import { 
-  colorPaletteMap,
-  coloursTofilm,
-  formatDateToDDMMYYYY,
-  likeColorPallets,
-} from './helper';
-import {
-  latest,
-  nintiesCar,
-  retroCar,
-} from './assets';
+  colorPaletteMap, coloursTofilm, likeColorPallets,
+  cars, cinemaCultures, colors } from './helper';
+import { eyes } from './assets';
 import { HomePage } from './pages';
 import './App.scss';
 
@@ -27,52 +20,10 @@ function App() {
     setEra,
     start,
     filmRecommendations,
+    currentDisplay,
+    setCurrentDisplay,
+    seen,
   } = useContext(filmContext);
-
-  const cars = [
-    {
-      alt:'retro-car',
-      gteTime: '1970-01-01',
-      imgSrc: retroCar,
-      lteTime: '1950-01-01',
-      width: '200px',
-    }, 
-    {
-      alt:'ninties-car',
-      gteTime: '1980-01-01',
-      imgSrc: nintiesCar,
-      lteTime: '1960-01-01',
-      width: '200px',
-    },  
-    {
-      alt:'latest-car',
-      gteTime: formatDateToDDMMYYYY(new Date()),
-      imgSrc: latest,
-      lteTime: '1980-01-01',
-      width: '200px',
-    }];
-
-  const cinemaCultures = [{
-    color: '#5D9C59',
-    text: 'Yes',
-  }, {
-    color: '#DF2E38',
-    text: 'No',
-  }];
-
-  let colors = [{
-    color: '#22092C',
-  }, {
-    color: '#3E3232',
-  }, {
-    color: '#872341',
-  }, {
-    color: '#BE3144',
-  }, {
-    color: '#F05941',
-  }, {
-    color: '#F4CE14',
-  }];
 
   const showColourQuestion = (colour === undefined) && start;
   const showEraQuestion = (era.length === 0) && !showColourQuestion && start;
@@ -80,12 +31,6 @@ function App() {
 
   let konHai = [];
   const specificColours = likeColorPallets[colour];
-
-  const showSpecificColourQuestion = (era.length !== 0) 
-                                  && colour
-                                  && specificColours
-                                  && includeInternationalFilms.set
-                                  && !showCultureQuestion;
 
   if (colour && specificColours) {
     let specifics = specificColours?.map((value) => {
@@ -101,10 +46,9 @@ function App() {
 
   let filmGenre, filmGenres;
 
-  if (colour && showEraQuestion) {
+  if (colour && (currentDisplay === 'era-question')) {
     let colourName = colorPaletteMap[colour];
-
-    filmGenre = coloursTofilm[colourName]
+    filmGenre = coloursTofilm[colourName];
 
     filmGenres = filmGenre.map(x => x + '').join(' & ');
   }
@@ -113,10 +57,13 @@ function App() {
 
   return (
       <>
-        {(!start || filmRecommendations.length < 0) && <HomePage />}
+        {(currentDisplay === 'get-started') && <HomePage />}
 
-        {showColourQuestion && <ListingQuestion
-          handleClick={(chosenColour) => setColour(chosenColour.color)}
+        {(currentDisplay === 'colour-question') && <ListingQuestion
+          handleClick={(chosenColour) => {
+            setColour(chosenColour.color);
+            setCurrentDisplay('era-question');
+          }}
           list={ colors }
           questionContent={'Pick a colour that matches your mood now'}
           elementClass={'color-questions-button'}
@@ -124,9 +71,10 @@ function App() {
           buttonLayout={'coloured-buttons-style'}
         />}
 
-        {showEraQuestion && <ListingQuestion
+        {(currentDisplay === 'era-question') && <ListingQuestion
             handleClick={(era) => {
-              setEra([era.gteTime, era.lteTime]); 
+              setEra([era.gteTime, era.lteTime]);
+              setCurrentDisplay('culture-question');
             }}
             questionContent={'Choose one for the Era movies'}
             list={ cars }
@@ -136,12 +84,13 @@ function App() {
           />
         }
 
-        {showCultureQuestion && <ListingQuestion
+        {(currentDisplay === 'culture-question') && <ListingQuestion
           handleClick={(newCulture) => {
             setIncludeInternationalFilms({
               set: true,
               value: 'Yes',
             });
+            setCurrentDisplay('specific-colour-question');
           }}
           list={ cinemaCultures }
           questionContent={'Include International Films'}
@@ -151,10 +100,11 @@ function App() {
           applyBackGroundColour
         />}
         
-        {showSpecificColourQuestion && <ListingQuestion
+        {(currentDisplay === 'specific-colour-question') && <ListingQuestion
           handleClick={(chosenColour) => {
             setColour(chosenColour.color);
-            fetchRecommendations(); 
+            setCurrentDisplay('recommendations');
+            fetchRecommendations();
           }}
           list={ konHai }
           questionContent={'Let\'s pick a more specific mood colour'}
@@ -164,7 +114,18 @@ function App() {
           promptMessage={'Okay, Last One!'}
         />}
 
-        <FilmRecommendations />
+        {(currentDisplay === 'recommendations') && <FilmRecommendations />}
+
+        {(seen.length > 0) && <button className='fab-button-so-far'>
+          <img 
+            width='50px'
+            src={ eyes }
+            onClick={() => {
+              console.log('Clicked: ');
+            }}
+            alt='eye-icon'
+          />
+          </button>}
       </>
   );
 }

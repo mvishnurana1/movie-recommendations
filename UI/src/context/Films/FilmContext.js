@@ -2,21 +2,25 @@ import { createContext } from "react";
 
 const filmContext = createContext({
     filmRecommendations: [],
-    setColour: () => {},
+    setColour: (colour) => {},
     colour: '',
     fetchRecommendations: () => {},
     isLoading: Boolean,
-    setLoading: (x) => {},
+    setLoading: (loading) => {},
     era: [],
-    setEra: (x) => {},
-    setFilmRecommendations: (x) => {},
+    setEra: (era) => {},
+    setFilmRecommendations: (filmRecommendations) => {},
     setIncludeInternationalFilms: (x) => {},
     includeInternationalFilms: Boolean,
     fetched: Boolean,
-    setFetched: (x) => {},
+    setFetched: (fetched) => {},
     topRatedFilms: [],
     start: Boolean,
-    setStarted: (x) => {},
+    setStarted: (start) => {},
+    currentDisplay: '',
+    setCurrentDisplay: (currentDisplay) => {},
+    seen: [],
+    setSeen: (seen) => {},
 });
 
 export { filmContext };

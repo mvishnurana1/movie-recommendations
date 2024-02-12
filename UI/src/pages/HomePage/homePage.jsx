@@ -4,7 +4,7 @@ import { FilmListing, Loader } from './../../components';
 import './homePage.scss';
 
 function HomePage() {
-    const { setStarted, isLoading } = useContext(filmContext);
+    const { isLoading, setCurrentDisplay } = useContext(filmContext);
 
     if (isLoading) {
     return <div className='loader-container'>
@@ -22,7 +22,7 @@ function HomePage() {
                 <div className='sub-text'>Just answer some mood questions</div>
                 <div>
                     <button
-                        onClick={() => setStarted(true)}
+                        onClick={() => setCurrentDisplay('colour-question')}
                         title='Get Started'
                         className='button-no-native-style started'>
                         <span className='button-content'>Get Started</span>

@@ -13,20 +13,18 @@ function FilmRecommendations() {
       setIncludeInternationalFilms,
       setFilmRecommendations,
       setFetched,
+      setCurrentDisplay,
+      setSeen,
       fetched } = useContext(filmContext);
 
     const [ chosenFilm, setChosenFilm ] = useState(null);
     const [ open, setOpen ] = useState(false);
     const [ isScrollingDown, setIsScrollingDown ] = useState(false);
-    const [ seen, setSeen ] = useState([]);
 
     const error = filmRecommendations === null;
     const noResult = filmRecommendations?.length === 0;
 
     useEffect(() => {
-      const films = JSON.parse(localStorage.getItem('seen')) ?? [];
-      setSeen(films);
-
       const handleScroll = () => {
         const currentScrollTop = document.documentElement.scrollTop;
         setIsScrollingDown(currentScrollTop > 250);
@@ -76,6 +74,7 @@ function FilmRecommendations() {
       });
       setColour(undefined);
       setFetched(false);
+      setCurrentDisplay('colour-question');
       localStorage.removeItem('fetched_films');
     }
 
@@ -140,17 +139,6 @@ function FilmRecommendations() {
                       document.documentElement.scrollTop = 0;
                     }}
                     alt='arrow-top'
-                  />
-                </button>}
-
-                {(seen.length > 0) && <button className='fab-button-so-far'>
-                  <img 
-                    width='50px'
-                    src={eyes}
-                    onClick={() => {
-                      console.log('Clicked: ');
-                    }}
-                    alt='eye-icon'
                   />
                 </button>}
               </div>

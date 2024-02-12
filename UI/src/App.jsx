@@ -26,6 +26,7 @@ function App() {
     setIncludeInternationalFilms,
     setEra,
     start,
+    filmRecommendations,
   } = useContext(filmContext);
 
   const cars = [
@@ -110,7 +111,7 @@ function App() {
 
   return (
       <>
-        {!start && <HomePage />}
+        {!start && (filmRecommendations.length < 0) && <HomePage />}
 
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}

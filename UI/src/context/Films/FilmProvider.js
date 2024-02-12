@@ -25,6 +25,9 @@ export function FilmProvider({ children }) {
     }
 
     useEffect(() => {
+        const cachedFilms = JSON.parse(localStorage.getItem('fetched_films')) ?? [];
+        setFilmRecommendations(cachedFilms);
+
         try {
             let call = true;
             setLoading(true);
@@ -57,7 +60,7 @@ export function FilmProvider({ children }) {
             // const list = data.results;
             setFilmRecommendations(data);
 
-            // localStorage.setItem('fetched_films', JSON.stringify(list));
+            localStorage.setItem('fetched_films', JSON.stringify(data));
         } catch (err) {
             throw err;
         } finally {

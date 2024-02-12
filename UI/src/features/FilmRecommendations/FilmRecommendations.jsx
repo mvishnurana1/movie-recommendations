@@ -18,12 +18,15 @@ function FilmRecommendations() {
     const [ chosenFilm, setChosenFilm ] = useState(null);
     const [ open, setOpen ] = useState(false);
     const [ isScrollingDown, setIsScrollingDown ] = useState(false);
-    // const [ showingSeenFilms, setShowingSeenFilms  ] = useState(false);
-    
+    const [ seen, setSeen ] = useState([]);
+
     const error = filmRecommendations === null;
     const noResult = filmRecommendations?.length === 0;
 
     useEffect(() => {
+      const films = JSON.parse(localStorage.getItem('seen')) ?? [];
+      setSeen(films);
+
       const handleScroll = () => {
         const currentScrollTop = document.documentElement.scrollTop;
         setIsScrollingDown(currentScrollTop > 250);
@@ -50,6 +53,16 @@ function FilmRecommendations() {
     }
 
     function handleClick(film) {
+      let cachedFilms = JSON.parse(localStorage.getItem('seen')) ?? [];
+      const filtered = cachedFilms.filter((existingFilm) => existingFilm.id === film.id);
+
+      if ((cachedFilms.length === 0) || (filtered.length === 0)) {
+          cachedFilms.push(film);
+      }
+
+      setSeen(cachedFilms);
+      localStorage.setItem('seen', JSON.stringify(cachedFilms));
+
       setOpen(true);
       setChosenFilm(film);
     }
@@ -63,6 +76,7 @@ function FilmRecommendations() {
       });
       setColour(undefined);
       setFetched(false);
+      localStorage.clear();
     }
 
     function noResultsReturned() {
@@ -129,7 +143,7 @@ function FilmRecommendations() {
                   />
                 </button>}
 
-                <button className='fab-button-so-far'>
+                {(seen.length > 0) && <button className='fab-button-so-far'>
                   <img 
                     width='50px'
                     src={eyes}
@@ -138,7 +152,7 @@ function FilmRecommendations() {
                     }}
                     alt='eye-icon'
                   />
-                </button>
+                </button>}
               </div>
           </div>
 

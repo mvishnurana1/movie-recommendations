@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AppModal, Card, Loader } from '../../components';
 import { filmContext } from '../../context';
-import { arrow, eyes, globe } from '../../assets';
+import { arrow, globe } from '../../assets';
 import './FilmRecommendations.scss';
 
 function FilmRecommendations() {

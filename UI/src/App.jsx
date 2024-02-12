@@ -12,36 +12,27 @@ import './App.scss';
 function App() {
   const {
     colour,
-    era,
     fetchRecommendations,
     setColour,
-    includeInternationalFilms,
     setIncludeInternationalFilms,
     setEra,
-    start,
-    filmRecommendations,
     currentDisplay,
     setCurrentDisplay,
     seen,
   } = useContext(filmContext);
 
-  const showColourQuestion = (colour === undefined) && start;
-  const showEraQuestion = (era.length === 0) && !showColourQuestion && start;
-  const showCultureQuestion = (!showEraQuestion) && (!showColourQuestion) && !includeInternationalFilms.set && start;
-
-  let konHai = [];
+  let coloursMapList = [];
   const specificColours = likeColorPallets[colour];
 
   if (colour && specificColours) {
     let specifics = specificColours?.map((value) => {
       return {
-        ['color']: value
+        'color': value
       }
     });
     
-    const noColour = [...specifics];
-    
-    konHai = noColour;
+    const coloursObj = [...specifics];
+    coloursMapList = coloursObj;
   }
 
   let filmGenre, filmGenres;
@@ -52,8 +43,6 @@ function App() {
 
     filmGenres = filmGenre.map(x => x + '').join(' & ');
   }
-
-  const cachedFilms = JSON.parse(localStorage.getItem('seen')) ?? [];
 
   return (
       <>
@@ -96,7 +85,7 @@ function App() {
           questionContent={'Include International Films'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
-          promptMessage={'Well, that\s cool!'}
+          promptMessage={'Well, that\'s cool!'}
           applyBackGroundColour
         />}
         
@@ -106,7 +95,7 @@ function App() {
             setCurrentDisplay('recommendations');
             fetchRecommendations();
           }}
-          list={ konHai }
+          list={ coloursMapList }
           questionContent={'Let\'s pick a more specific mood colour'}
           elementClass={'color-questions-button'}
           applyBackGroundColour

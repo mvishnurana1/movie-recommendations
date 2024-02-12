@@ -111,7 +111,7 @@ function App() {
 
   return (
       <>
-        {!start && (filmRecommendations.length < 0) && <HomePage />}
+        {(!start || (filmRecommendations.length < 0)) && <HomePage />}
 
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}
@@ -120,7 +120,7 @@ function App() {
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
-          />}
+        />}
 
         {showEraQuestion && <ListingQuestion
             handleClick={(era) => {

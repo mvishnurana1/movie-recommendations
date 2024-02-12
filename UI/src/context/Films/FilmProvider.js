@@ -25,7 +25,7 @@ export function FilmProvider({ children }) {
     }
 
     useEffect(() => {
-        const cachedFilms = JSON.parse(localStorage.getItem('fetched_films'));
+        const cachedFilms = JSON.parse(localStorage.getItem('fetched_films')) ?? [];
         setFilmRecommendations(cachedFilms);
 
         try {

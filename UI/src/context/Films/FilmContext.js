@@ -15,8 +15,6 @@ const filmContext = createContext({
     fetched: Boolean,
     setFetched: (fetched) => {},
     topRatedFilms: [],
-    start: Boolean,
-    setStarted: (start) => {},
     currentDisplay: '',
     setCurrentDisplay: (currentDisplay) => {},
     seen: [],

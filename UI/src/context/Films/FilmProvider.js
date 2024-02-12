@@ -5,7 +5,6 @@ import { coloursTofilm, genres, colorPaletteMap } from '../../helper';
 
 export function FilmProvider({ children }) {
     const [colour, setColour] = useState(undefined);
-    const [start, setStarted] = useState(false);
     const [topRatedFilms, setTopRatedFilms] = useState([]);
     const [filmRecommendations, setFilmRecommendations] = useState([]);
     const [isLoading, setLoading] = useState(false);
@@ -103,8 +102,6 @@ export function FilmProvider({ children }) {
         setIncludeInternationalFilms: setIncludeInternationalFilms,
         setFetched: setFetched,
         topRatedFilms: topRatedFilms,
-        start: start,
-        setStarted: setStarted,
         currentDisplay: currentDisplay,
         setCurrentDisplay: setCurrentDisplay,
         seen: seen,

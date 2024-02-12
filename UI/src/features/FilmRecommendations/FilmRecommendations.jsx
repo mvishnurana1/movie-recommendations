@@ -76,6 +76,7 @@ function FilmRecommendations() {
       });
       setColour(undefined);
       setFetched(false);
+      setSeen([]);
       localStorage.clear();
     }
 

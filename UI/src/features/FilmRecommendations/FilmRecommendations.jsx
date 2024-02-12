@@ -24,7 +24,7 @@ function FilmRecommendations() {
     const noResult = filmRecommendations?.length === 0;
 
     useEffect(() => {
-      const films = JSON.parse(localStorage.getItem('seen'));
+      const films = JSON.parse(localStorage.getItem('seen')) ?? [];
       setSeen(films);
 
       const handleScroll = () => {
@@ -143,7 +143,7 @@ function FilmRecommendations() {
                   />
                 </button>}
 
-                <button className='fab-button-so-far'>
+                {(seen.length > 0) && <button className='fab-button-so-far'>
                   <img 
                     width='50px'
                     src={eyes}
@@ -152,7 +152,7 @@ function FilmRecommendations() {
                     }}
                     alt='eye-icon'
                   />
-                </button>
+                </button>}
               </div>
           </div>
 

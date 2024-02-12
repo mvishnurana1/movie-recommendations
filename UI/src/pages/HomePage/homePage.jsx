@@ -23,7 +23,7 @@ function HomePage() {
                 <div>
                     <button
                         onClick={() => setStarted(true)}
-                        title='get-started-button'
+                        title='Get Started'
                         className='button-no-native-style started'>
                         <span className='button-content'>Get Started</span>
                     </button>

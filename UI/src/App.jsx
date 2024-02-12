@@ -109,9 +109,11 @@ function App() {
     filmGenres = filmGenre.map(x => x + '').join(' & ');
   }
 
+  const cachedFilms = JSON.parse(localStorage.getItem('seen')) ?? [];
+
   return (
       <>
-        {(!start || (filmRecommendations.length < 0)) && <HomePage />}
+        {(!start || (filmRecommendations.length < 0 || (cachedFilms.length > 0))) && <HomePage />}
 
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}

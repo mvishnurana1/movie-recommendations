@@ -54,7 +54,11 @@ function FilmRecommendations() {
 
     function handleClick(film) {
       let cachedFilms = JSON.parse(localStorage.getItem('seen')) ?? [];
-      cachedFilms.push(film);
+      const filtered = cachedFilms.filter((existingFilm) => existingFilm.id === film.id);
+
+      if ((cachedFilms.length === 0) || (filtered.length === 0)) {
+          cachedFilms.push(film);
+      }
 
       setSeen(cachedFilms);
       localStorage.setItem('seen', JSON.stringify(cachedFilms));

@@ -51,7 +51,7 @@ function App() {
       lteTime: '1980-01-01',
       width: '200px',
     }];
-    
+
   const cinemaCultures = [{
     color: '#5D9C59',
     text: 'Yes',
@@ -113,7 +113,7 @@ function App() {
 
   return (
       <>
-        {(!start || (filmRecommendations.length < 0 || (cachedFilms.length > 0))) && <HomePage />}
+        {(!start || filmRecommendations.length < 0) && <HomePage />}
 
         {showColourQuestion && <ListingQuestion
           handleClick={(chosenColour) => setColour(chosenColour.color)}

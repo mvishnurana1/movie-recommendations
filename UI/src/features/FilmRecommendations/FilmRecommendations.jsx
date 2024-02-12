@@ -76,8 +76,7 @@ function FilmRecommendations() {
       });
       setColour(undefined);
       setFetched(false);
-      setSeen([]);
-      localStorage.clear();
+      localStorage.removeItem('fetched_films');
     }
 
     function noResultsReturned() {

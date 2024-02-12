@@ -29,19 +29,33 @@
 }
 
 .fab-button {
+    position: fixed;
+    bottom: 20px;
+    margin-bottom: 20px;
+    right: 20px;
     align-items: center;
-    background-color: #dc3535;
+    background-color: #F57D1F;
     border: none;
     border-radius: 50%;
     display: flex;
+    padding: 1rem;
+    font: inherit;
+    cursor: pointer;
+    
+    justify-content: center;
+    z-index: var(--layer-1);
+}
 
-    --_viewport-margin: 2.5vmin;
-
+.fab-button-so-far {
     position: fixed;
-    
-    inset-block: auto var(--_viewport-margin);
-    inset-inline: auto var(--_viewport-margin);
-    
+    bottom: 20px;
+    margin-bottom: 20px;
+    left: 20px;
+    align-items: center;
+    background-color: #F72798;
+    border: none;
+    border-radius: 50%;
+    display: flex;
     padding: 1rem;
     font: inherit;
     cursor: pointer;

@@ -7,7 +7,6 @@ import {
   coloursTofilm,
   formatDateToDDMMYYYY,
   likeColorPallets,
-  likeColorsFilms
 } from './helper';
 import {
   latest,

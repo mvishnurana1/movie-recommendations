@@ -21,7 +21,6 @@ function Card({
             <img 
                 alt={`${originalTitle}-poster`}
                 className={`${ImgclassNames}`} 
-                loading="lazy"
                 src={ posterPath ? `${imageBaseUrl}${posterPath}` : `${blankFilm}`}
             />
             <div style={{ margin: '0 10px' }}>

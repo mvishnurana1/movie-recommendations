@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AppModal, Card, Loader } from '../../components';
 import { filmContext } from '../../context';
-import { arrow, globe } from '../../assets';
+import { arrow, eyes, globe } from '../../assets';
 import './FilmRecommendations.scss';
 
 function FilmRecommendations() {
@@ -18,6 +18,7 @@ function FilmRecommendations() {
     const [ chosenFilm, setChosenFilm ] = useState(null);
     const [ open, setOpen ] = useState(false);
     const [ isScrollingDown, setIsScrollingDown ] = useState(false);
+    // const [ showingSeenFilms, setShowingSeenFilms  ] = useState(false);
     
     const error = filmRecommendations === null;
     const noResult = filmRecommendations?.length === 0;
@@ -127,6 +128,17 @@ function FilmRecommendations() {
                     alt='arrow-top'
                   />
                 </button>}
+
+                <button className='fab-button-so-far'>
+                  <img 
+                    width='50px'
+                    src={eyes}
+                    onClick={() => {
+                      console.log('Clicked: ');
+                    }}
+                    alt='eye-icon'
+                  />
+                </button>
               </div>
           </div>
 
@@ -134,7 +146,7 @@ function FilmRecommendations() {
             isModalOpen={ open }
             closeModal={() => setOpen(false)}
             data={ chosenFilm }
-        />}
+          />}
         </>
       )
 }

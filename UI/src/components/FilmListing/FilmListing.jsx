@@ -8,13 +8,13 @@ function FilmListing() {
     const { topRatedFilms } = useContext(filmContext);
 
     return <div className='background-layout gl-horizontally-centre'>
-        {topRatedFilms.map((film) => <Card
+        {topRatedFilms.map((film, index) => <Card
             film={ film }
             cardMainClass="movie-card-hover-effect"
             originalTitle={ film.title }
             filmRating={ film.vote_average }
             ImgclassNames='card-main-img'
-            key={ film.id }
+            key={ index }
             posterPath={ film.poster_path ?? '' }
         />)}
   </div>

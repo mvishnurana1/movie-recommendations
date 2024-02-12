@@ -13,11 +13,13 @@ import blankFilm from './files/blank-film.webp';
 import film from './files/film.gif';
 import globe from './files/wired-globe.gif';
 import linkUnlink from './files/link-unlink.gif';
+import eyes from './files/eyes.png';
 
 export {
     amazon,
     arrow,
     blankFilm,
+    eyes,
     film,
     globe,
     googlePlay,

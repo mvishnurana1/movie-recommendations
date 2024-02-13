@@ -12,13 +12,13 @@ import './App.scss';
 function App() {
   const {
     colour,
+    currentDisplay,
+    seen,
     fetchRecommendations,
     setColour,
     setIncludeInternationalFilms,
     setEra,
-    currentDisplay,
     setCurrentDisplay,
-    seen,
   } = useContext(filmContext);
 
   let coloursMapList = [];
@@ -106,22 +106,22 @@ function App() {
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
         {(seen.length > 0) &&
-          <div>
-            <button className='fab-button-so-far'>
-              <img 
-                width='30px'
-                src={ eyes }
-                onClick={() =>
-                  console.log('Clicked: ')
-                }
-                alt='eye-icon'
-              />
-            </button>
+          ((currentDisplay === 'recommendations') ||
+          (currentDisplay === 'era-question') ||
+          (currentDisplay === 'culture-question') ||
+          (currentDisplay === 'specific-colour-question') ||
+          (currentDisplay === 'colour-question')) &&
+          <button onClick={() => {
+            console.log('Clicked Fab Button...');
+          }}>
+            <div className='fab-button-so-far'>
+              <img alt='eye-icon' width='30px' src={ eyes } />
+            </div>
             
             <div className='fab-button-so-far-notifications'>
               {seen.length}
             </div>
-          </div>}
+          </button>}
       </>
   );
 }

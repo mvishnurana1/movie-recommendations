@@ -1,15 +1,17 @@
-import { useContext } from 'react';
-import { ListingQuestion } from './components';
+import { useContext, useState } from 'react';
+import { ConciseFilmList, ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
 import { 
   colorPaletteMap, coloursTofilm, likeColorPallets,
   cars, cinemaCultures, colors } from './helper';
-import { eyes } from './assets';
+import { close, eyes } from './assets';
 import { HomePage } from './pages';
 import './App.scss';
 
 function App() {
+  const [ visitedList, setVisitedList ] = useState(false);
+
   const {
     colour,
     currentDisplay,
@@ -43,6 +45,10 @@ function App() {
 
     filmGenres = filmGenre.map(x => x + '').join(' & ');
   }
+
+  const displayFabButton = ((currentDisplay === 'recommendations') || (currentDisplay === 'era-question') ||
+                           (currentDisplay === 'culture-question') || (currentDisplay === 'specific-colour-question')
+                           || (currentDisplay === 'colour-question'));
 
   return (
       <>
@@ -105,17 +111,14 @@ function App() {
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
-        {(seen.length > 0) &&
-          ((currentDisplay === 'recommendations') ||
-          (currentDisplay === 'era-question') ||
-          (currentDisplay === 'culture-question') ||
-          (currentDisplay === 'specific-colour-question') ||
-          (currentDisplay === 'colour-question')) &&
-          <button onClick={() => {
-            console.log('Clicked Fab Button...');
-          }}>
+        { visitedList && <div className='fab-buttons'>
+          <ConciseFilmList />
+        </div>}
+
+        {(seen.length > 0) && displayFabButton &&
+          <button onClick={() => setVisitedList(!visitedList) }>
             <div className='fab-button-so-far'>
-              <img alt='eye-icon' width='30px' src={ eyes } />
+              <img alt={ visitedList ? 'close-icon' : 'eye-icon' } width='30px' src={ visitedList ? close : eyes } />
             </div>
             
             <div className='fab-button-so-far-notifications'>

@@ -14,11 +14,13 @@ import film from './files/film.gif';
 import globe from './files/wired-globe.gif';
 import linkUnlink from './files/link-unlink.gif';
 import eyes from './files/eyes.png';
+import close from './files/close.png';
 
 export {
     amazon,
     arrow,
     blankFilm,
+    close,
     eyes,
     film,
     globe,

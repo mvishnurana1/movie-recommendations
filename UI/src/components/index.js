@@ -1,6 +1,6 @@
 import IconButton from './IconButton/iconButton';
 import Card from "./Card/card";
-import CardFooter from "./CardFooter/cardFooter";
+import { ConciseFilmList } from "./ConciseFilmList/conciseFilmList";
 import { ListingQuestion } from './Question';
 import Loader from './Loader/loader';
 import ErrorBoundary from './ErrorBoundary/errorBoundary';
@@ -10,7 +10,7 @@ import { AppModal } from './AppModal';
 export {
     AppModal,
     Card,
-    CardFooter,
+    ConciseFilmList,
     ErrorBoundary,
     FilmListing,
     IconButton,

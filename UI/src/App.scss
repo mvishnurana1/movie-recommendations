@@ -16,4 +16,42 @@
     font-weight: 500;
     color: rgb(245, 197, 24);
   }
+
+}
+
+.fab-button-so-far {
+  position: fixed;
+  bottom: 20px;
+  margin-bottom: 20px;
+  left: 20px;
+  align-items: center;
+  background-color: #F72798;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  padding: 1rem;
+  font: inherit;
+  cursor: pointer;
+  
+  justify-content: center;
+  z-index: var(--layer-1);
+}
+
+.fab-button-so-far-notifications {
+  position: fixed;
+  bottom: 10px;
+  margin-bottom: 80px;
+  left: 50px;
+  align-items: center;
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  padding: 0.55rem;
+  font: inherit;
+  cursor: pointer;
+  color: white;
+  
+  justify-content: center;
+  z-index: var(--layer-1);
 }

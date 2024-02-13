@@ -105,16 +105,23 @@ function App() {
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
-        {(seen.length > 0) && <button className='fab-button-so-far'>
-          <img 
-            width='50px'
-            src={ eyes }
-            onClick={() => {
-              console.log('Clicked: ');
-            }}
-            alt='eye-icon'
-          />
-          </button>}
+        {(seen.length > 0) &&
+          <div>
+            <button className='fab-button-so-far'>
+              <img 
+                width='30px'
+                src={ eyes }
+                onClick={() =>
+                  console.log('Clicked: ')
+                }
+                alt='eye-icon'
+              />
+            </button>
+            
+            <div className='fab-button-so-far-notifications'>
+              {seen.length}
+            </div>
+          </div>}
       </>
   );
 }

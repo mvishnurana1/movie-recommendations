@@ -111,8 +111,8 @@ function App() {
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
-        { visitedList && <div className='fab-buttons'>
-          <ConciseFilmList />
+        { visitedList && <div className='visited-movies-container'>
+            <ConciseFilmList />
         </div>}
 
         {(seen.length > 0) && displayFabButton &&

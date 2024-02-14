@@ -24,7 +24,7 @@ function HomePage() {
                     <button
                         onClick={() => setCurrentDisplay('colour-question')}
                         title='Get Started'
-                        className='button-no-native-style started'>
+                        className='button-no-native-style started app-button'>
                         <span className='button-content'>Get Started</span>
                     </button>
                 </div>

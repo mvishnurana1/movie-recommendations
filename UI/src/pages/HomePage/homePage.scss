@@ -38,8 +38,7 @@
             font-weight: bold;
             font-size: 14px;
             color: black;
-            background-color: inherit;
-            border: 1px solid black;
+            border: 1px solid #FF9BD2;
             padding: .5rem 1rem;
             border-radius: 1rem;
             
@@ -51,8 +50,9 @@
             }
         
             &:hover {
-                background-color: rgb(226, 233, 236);
-                border-color: rgb(201, 198, 198);
+
+                background-color: #FF9BD2;
+                border-color: #FF9BD2;
             }
 
         }

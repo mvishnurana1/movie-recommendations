@@ -92,7 +92,7 @@ function FilmRecommendations() {
             <span>Please try different criteria.</span>
           </div>
           <div className='gl-horizontally-centre main-button'>
-            <button className='button-no-native-style back-button'
+            <button className='button-no-native-style app-button back-button'
               onClick={() => setStatesToDefault()}>
                 <span>Try Again</span>
             </button>
@@ -108,7 +108,7 @@ function FilmRecommendations() {
               <h2 className='gl-header-level-two' style={{ textAlign: 'center' }}>Recommendations For You</h2>
             </div>
             <div>
-              <button className='button-no-native-style back-button'
+              <button className='button-no-native-style app-button back-button'
                 onClick={() => setStatesToDefault()}>
                   <span>Back To Questions</span>
               </button>
@@ -130,9 +130,9 @@ function FilmRecommendations() {
               />)}
 
               <div>
-                {isScrollingDown && <button className='fab-button'>
+                {isScrollingDown && <button className='fab-button app-button'>
                   <img 
-                    width='50px'
+                    width='30px'
                     src={arrow}
                     onClick={() => {
                       document.body.scrollTop = 0; // For Safari

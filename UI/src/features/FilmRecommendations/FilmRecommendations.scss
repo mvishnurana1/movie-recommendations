@@ -4,10 +4,10 @@
     background-color: grey;
     color: black;
     padding: .5rem 1rem;
+    border-radius: 1rem;
 
     &:hover {
-        background-color: black;
-        color: grey;
+        font-weight: bolder;
     }
 }
 
@@ -34,14 +34,12 @@
     margin-bottom: 20px;
     right: 20px;
     align-items: center;
-    background-color: #F57D1F;
     border: none;
     border-radius: 50%;
     display: flex;
     padding: 1rem;
     font: inherit;
     cursor: pointer;
-    
     justify-content: center;
     z-index: var(--layer-1);
 }

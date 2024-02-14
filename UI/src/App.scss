@@ -58,15 +58,15 @@
 
 .visited-movies-container {
   position: fixed;
-  bottom: 40px;
+  bottom: 20px;
+  border-radius: 1rem;
   margin-bottom: 85px;
-  left: 50px;
+  left: 20px;
   background-color: black;
   padding: 0.55rem; 
   font: inherit;
   cursor: pointer;
   color: white;
-  height: 600px;
   overflow-y: auto;
   justify-content: center;
   z-index: var(--layer-1);

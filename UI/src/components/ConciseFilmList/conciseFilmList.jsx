@@ -6,7 +6,7 @@ function ConciseFilmList() {
     const { seen } = useContext(filmContext);
     const posterBasePath = 'https://image.tmdb.org/t/p/original/';
 
-    return seen.map((filmSeen) => <div key={filmSeen.id}>
+    return seen.map((filmSeen) => <div className='item' key={filmSeen.id}>
         <div style={{
             display: 'flex',
             margin: '0.25rem',

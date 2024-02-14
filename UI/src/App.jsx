@@ -121,9 +121,9 @@ function App() {
               <img alt={ visitedList ? 'close-icon' : 'eye-icon' } width='30px' src={ visitedList ? close : eyes } />
             </div>
             
-            <div className='fab-button-so-far-notifications'>
+            {!visitedList && <div className='fab-button-so-far-notifications'>
               {seen.length}
-            </div>
+            </div>}
           </button>}
       </>
   );

@@ -43,15 +43,14 @@
   margin-bottom: 80px;
   left: 50px;
   align-items: center;
-  background-color: black;
   border: none;
   border-radius: 50%;
   display: flex;
   padding: 0.55rem; 
   font: inherit;
   cursor: pointer;
-  color: white;
-  
+  color: black;
+  font-weight: 700;
   justify-content: center;
   z-index: var(--layer-1);
 }

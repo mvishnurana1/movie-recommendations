@@ -77,4 +77,7 @@ h2 {
 
 .app-button {
     background-color: #f72798;
+    &:hover {
+        background-color: pink;
+    }
 }

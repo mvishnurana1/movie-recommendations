@@ -130,7 +130,7 @@ function FilmRecommendations() {
               />)}
 
               <div>
-                {isScrollingDown && <button className='fab-button app-button'>
+                {isScrollingDown && <button className='fab-button'>
                   <img 
                     width='30px'
                     src={arrow}

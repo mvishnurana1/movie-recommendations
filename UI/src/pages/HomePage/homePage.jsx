@@ -24,7 +24,7 @@ function HomePage() {
                     <button
                         onClick={() => setCurrentDisplay('colour-question')}
                         title='Get Started'
-                        className='button-no-native-style started app-button'>
+                        className='button-no-native-style app-button back-button'>
                         <span style={{ color: '#402B3A' }} className='button-content'>Get Started</span>
                     </button>
                 </div>

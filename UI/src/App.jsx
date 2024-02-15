@@ -79,7 +79,6 @@ function App() {
             list={ cars }
             elementClass={'car-hover'}
             imgListing
-            promptMessage={'Okay! So you\'re feeling like '+ filmGenres}
           />
         }
 
@@ -95,7 +94,6 @@ function App() {
           questionContent={'Include International Films'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
-          promptMessage={'Well, that\'s cool!'}
           applyBackGroundColour
         />}
         
@@ -110,7 +108,6 @@ function App() {
           elementClass={'color-questions-button'}
           applyBackGroundColour
           buttonLayout={'coloured-buttons-style'}
-          promptMessage={'Okay, Last One!'}
         />}
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}

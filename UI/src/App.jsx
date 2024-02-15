@@ -2,10 +2,7 @@ import { useContext, useState } from 'react';
 import { ConciseFilmList, ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
-import {
-  cars, colorPaletteMap, coloursTofilm,
-  cinemaCultures, colors, likeColorPallets,
-} from './helper';
+import { cars, cinemaCultures, colors, likeColorPallets } from './helper';
 import { close, eyes } from './assets';
 import { HomePage } from './pages';
 import './App.scss';
@@ -36,15 +33,6 @@ function App() {
     
     const coloursObj = [...specifics];
     coloursMapList = coloursObj;
-  }
-
-  let filmGenre, filmGenres;
-
-  if (colour && (currentDisplay === 'era-question')) {
-    let colourName = colorPaletteMap[colour];
-    filmGenre = coloursTofilm[colourName];
-
-    filmGenres = filmGenre.map(x => x + '').join(' & ');
   }
 
   const displayFabButton = (

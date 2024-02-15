@@ -11,7 +11,6 @@ function FilmRecommendations() {
       setColour,
       setEra,
       setIncludeInternationalFilms,
-      setFilmRecommendations,
       setFetched,
       setCurrentDisplay,
       setSeen,
@@ -67,7 +66,7 @@ function FilmRecommendations() {
 
     function setStatesToDefault() {
       setEra([]);
-      setFilmRecommendations([]);
+      // setFilmRecommendations([]);
       setIncludeInternationalFilms({
         set: false,
         value: 'No',
@@ -75,7 +74,7 @@ function FilmRecommendations() {
       setColour(undefined);
       setFetched(false);
       setCurrentDisplay('colour-question');
-      localStorage.removeItem('fetched_films');
+      // localStorage.removeItem('fetched_films');
     }
 
     function noResultsReturned() {
@@ -108,7 +107,7 @@ function FilmRecommendations() {
               <h2 className='gl-header-level-two' style={{ textAlign: 'center' }}>Recommendations For You</h2>
             </div>
             <div>
-              <button className='button-no-native-style app-button back-button'
+              <button className='back-to-questions-fab'
                 onClick={() => setStatesToDefault()}>
                   <span>Back To Questions</span>
               </button>

@@ -46,6 +46,23 @@
     z-index: var(--layer-1);
 }
 
+.back-to-questions-fab {
+    position: fixed;
+    top: 6rem;
+    background-color: #f72798;
+    margin-bottom: 20px;
+    border-radius: 1rem;
+    right: 20px;
+    align-items: center;
+    font-weight: 700;
+    border: none;
+    display: flex;
+    padding: 1rem;
+    cursor: pointer;
+    justify-content: center;
+    z-index: 5;
+}
+
 .no-results-container {
     align-items: center;
     display: flex;

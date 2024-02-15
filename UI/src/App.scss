@@ -1,24 +1,5 @@
 @import './global.scss';
 
-.App {
-  background-color: white;
-
-  .app-layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem 1rem;
-    justify-content: center;
-  }
-
-  .title {
-    font-size: 2rem;
-    line-height: 2.5rem;
-    font-weight: 500;
-    color: rgb(245, 197, 24);
-  }
-
-}
-
 .fab-button-so-far {
   position: fixed;
   bottom: 20px;

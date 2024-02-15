@@ -75,7 +75,7 @@ function App() {
               setEra([era.gteTime, era.lteTime]);
               setCurrentDisplay('culture-question');
             }}
-            questionContent={'Choose one for the Era movies'}
+            questionContent={'Choose one for the era of movies'}
             list={ cars }
             elementClass={'car-hover'}
             imgListing
@@ -91,7 +91,7 @@ function App() {
             setCurrentDisplay('specific-colour-question');
           }}
           list={ cinemaCultures }
-          questionContent={'Include International Films'}
+          questionContent={'Are you open to watching international films (dubbed in English)'}
           elementClass={'color-questions-button'}
           buttonLayout={'coloured-buttons-style'}
           applyBackGroundColour

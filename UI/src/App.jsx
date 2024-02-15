@@ -2,9 +2,10 @@ import { useContext, useState } from 'react';
 import { ConciseFilmList, ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
-import { 
-  colorPaletteMap, coloursTofilm, likeColorPallets,
-  cars, cinemaCultures, colors } from './helper';
+import {
+  cars, colorPaletteMap, coloursTofilm,
+  cinemaCultures, colors, likeColorPallets,
+} from './helper';
 import { close, eyes } from './assets';
 import { HomePage } from './pages';
 import './App.scss';
@@ -46,9 +47,12 @@ function App() {
     filmGenres = filmGenre.map(x => x + '').join(' & ');
   }
 
-  const displayFabButton = ((currentDisplay === 'recommendations') || (currentDisplay === 'era-question') ||
-                           (currentDisplay === 'culture-question') || (currentDisplay === 'specific-colour-question')
-                           || (currentDisplay === 'colour-question'));
+  const displayFabButton = (
+    (currentDisplay === 'recommendations') ||
+    (currentDisplay === 'era-question') ||
+    (currentDisplay === 'culture-question') ||
+    (currentDisplay === 'specific-colour-question') ||
+    (currentDisplay === 'colour-question'));
 
   return (
       <>

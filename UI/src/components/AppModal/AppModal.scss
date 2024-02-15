@@ -17,9 +17,9 @@
 
     .modal-button {
         align-items: center;
-        background-color: white;
+        background-color: #f72798;
         border-radius: 50%;
-        border: 1px solid black;
+        border: 1px solid #f72798;
         display: flex;
         height: 1rem;
         justify-content: center;
@@ -28,8 +28,8 @@
         width: 1rem;
         
         &:hover {
-            background-color: grey;
-            color: black;
+            background-color: #FF9BD2;
+            border: 1px solid #FF9BD2;
         }
     }
 

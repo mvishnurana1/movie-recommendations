@@ -1,6 +1,6 @@
 import ReactModal from 'react-modal';
 import { genreIdToGenreNameMapping, numberToMonth } from '../../helper';
-import { blankFilm, star } from '../../assets';
+import { blankFilm, close, star } from '../../assets';
 import './AppModal.scss';
 
 function AppModal({
@@ -9,6 +9,7 @@ function AppModal({
     isModalOpen,
 }) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';
+
     const {
         backdrop_path,
         genre_ids,
@@ -32,16 +33,25 @@ function AppModal({
                 onRequestClose={closeModal}>
         <div className='modal-layout'>
             <div style={{ width: '50%' }} className='flex-top'>
-                <button className='modal-button'
+                <button className='modal-button app-button'
                     onClick={() => closeModal()}>
                     <span>
-                        &#x2715;
+                        <img
+                            alt='close-button'
+                            src={ close }
+                            width={'15px'}
+                        />
                     </span>
                 </button>
             </div>
 
             <div className='gl-horizontally-centre'>
-                <img src={ backdrop_path ? `${imageBaseUrl}${backdrop_path}` : `${blankFilm}`} alt={title+'-movie-poster'} width="50%" />
+                <img
+                    alt={title+'-movie-poster'}
+                    style={{ borderRadius: '1rem' }}
+                    src={ backdrop_path ? `${imageBaseUrl}${backdrop_path}` : `${blankFilm}`}
+                    width="50%"
+                />
             </div>
 
             <div className='half-width' style={{ width: '50%' }}>
@@ -57,10 +67,10 @@ function AppModal({
 
                 <div className='gl-horizontal-space-between' style={{ marginTop: '1rem', fontSize: '1.2vw' }}>
                     <div style={{ width: '70%' }}>
-                        { genre_ids.map((id, index) => <span key={id}>
+                        {genre_ids.map((id, index) => <span key={id}>
                             {`${genreIdToGenreNameMapping[id]} `} 
                             { isLastElement(index) ? ' ': <span> &#x2022; </span> } 
-                        </span>) }
+                        </span>)}
                     </div>
 
                     <div style={{
@@ -75,7 +85,10 @@ function AppModal({
                     </div>
                 </div>
 
-                <div style={{ marginTop: '1rem' }}>
+                <div style={{
+                    fontSize: '1vw',
+                    marginTop: '1rem',
+                }}>
                     {overview}
                 </div>
             </div>

@@ -16,6 +16,7 @@ function ConciseFilmList() {
                 alt={`${filmSeen}-poster`}
                 src={`${posterBasePath}${filmSeen.poster_path}`}
                 width={'25px'}
+                style={{ borderRadius: '0.25rem' }}
             />
             <span style={{ maxWidth: '250px' }}>
                 { filmSeen.title }

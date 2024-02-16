@@ -1,12 +1,18 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { filmContext } from '../../context';
 import './conciseFilmList.scss';
+import { AppModal } from '../AppModal';
 
 function ConciseFilmList() {
     const { seen } = useContext(filmContext);
+    const [openedFilm, setOpenedFilm] = useState(null);
     const posterBasePath = 'https://image.tmdb.org/t/p/original/';
 
-    return seen.map((filmSeen) => <div className='item' key={filmSeen.id}>
+    return <>
+    {seen.map((filmSeen) => <div 
+        className='item'
+        key={filmSeen.id}
+        onClick={() => setOpenedFilm(filmSeen)}>
         <div style={{
             display: 'flex',
             margin: '0.25rem',
@@ -22,7 +28,9 @@ function ConciseFilmList() {
                 { filmSeen.title }
             </span>
         </div>
-    </div>)
+    </div>)}
+    {openedFilm && <AppModal closeModal={() => setOpenedFilm(null)} data={openedFilm} isModalOpen={openedFilm} />}
+    </>
 }
 
 export { ConciseFilmList }; 

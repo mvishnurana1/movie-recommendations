@@ -106,7 +106,7 @@ function FilmRecommendations() {
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <h2 className='gl-header-level-two' style={{ textAlign: 'center' }}>Recommendations For You</h2>
             </div>
-            {!open && <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {!open && <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '0.5rem 2rem' }}>
               <button className='button-no-native-style back-to-questions-fab'
                 onClick={() => setStatesToDefault()}>
                   <span>Back To Questions</span>

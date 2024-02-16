@@ -3,11 +3,7 @@ import { genreIdToGenreNameMapping, numberToMonth } from '../../helper';
 import { blankFilm, close, star } from '../../assets';
 import './AppModal.scss';
 
-function AppModal({
-    closeModal,
-    data,
-    isModalOpen,
-}) {
+function AppModal({ closeModal, data, isModalOpen }) {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/original/';
 
     const {

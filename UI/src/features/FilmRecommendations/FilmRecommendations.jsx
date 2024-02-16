@@ -102,16 +102,16 @@ function FilmRecommendations() {
 
     return (
         <>
-          <div className={noResult ? 'hide': 'layout'}>
-            <div>
+          <div className={noResult ? 'hide': ''}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
               <h2 className='gl-header-level-two' style={{ textAlign: 'center' }}>Recommendations For You</h2>
             </div>
-            <div>
-              <button className='back-to-questions-fab'
+            {!open && <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <button className='button-no-native-style back-to-questions-fab'
                 onClick={() => setStatesToDefault()}>
                   <span>Back To Questions</span>
               </button>
-            </div>
+            </div>}
           </div>
 
           {noResult && fetched && noResultsReturned()}

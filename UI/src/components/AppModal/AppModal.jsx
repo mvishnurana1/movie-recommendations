@@ -1,6 +1,6 @@
 import ReactModal from 'react-modal';
 import { genreIdToGenreNameMapping, numberToMonth } from '../../helper';
-import { blankFilm, close, star } from '../../assets';
+import { blankFilm, star } from '../../assets';
 import './AppModal.scss';
 
 function AppModal({ closeModal, data, isModalOpen }) {

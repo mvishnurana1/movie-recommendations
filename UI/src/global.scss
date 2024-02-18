@@ -87,3 +87,15 @@ h2 {
     background-color: white;
     box-shadow: 0.25rem 0.2rem grey;
 }
+
+.back-to-questions-fab {
+    background-color: white;
+    border-radius: 1rem;
+    font-weight: bolder;
+    padding: 1rem;
+    border: 1px solid grey;
+
+    &:hover {
+        background-color: grey;
+    }
+}

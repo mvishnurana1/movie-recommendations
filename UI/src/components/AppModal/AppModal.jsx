@@ -29,14 +29,10 @@ function AppModal({ closeModal, data, isModalOpen }) {
                 onRequestClose={closeModal}>
         <div className='modal-layout'>
             <div className='flex-top'>
-                <button className='modal-button app-button'
+                <button className='modal-button'
                     onClick={() => closeModal()}>
-                    <span>
-                        <img
-                            alt='close-button'
-                            src={ close }
-                            width={'15px'}
-                        />
+                    <span style={{ fontWeight: 'bold'}}>
+                        &#x2715;
                     </span>
                 </button>
             </div>

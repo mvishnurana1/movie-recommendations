@@ -47,11 +47,15 @@
 }
 
 .back-to-questions-fab {
-    background-color: #f72798;
+    background-color: white;
     border-radius: 1rem;
-    font-weight: 700;
-    border: none;
+    font-weight: bolder;
     padding: 1rem;
+    border: 1px solid grey;
+
+    &:hover {
+        background-color: grey;
+    }
 }
 
 .no-results-container {

@@ -7,11 +7,16 @@
     padding: 2rem 0.5rem;
     background-color: $white;
     color: $dark;
+
+    .img-poster {
+        width: 50%;
+    }
     
     .flex-top {
         display: flex;
         justify-content: flex-end;
         border-radius: 1rem;
+        width: 50%;
         margin: 0.5rem 0;
     }
 
@@ -37,5 +42,15 @@
         align-items: center;
         display: flex;
         flex-direction: column;
+    }
+
+    @media screen and (max-width: 820px) {
+        .img-poster {
+            width: 100%;
+        }
+
+        .flex-top {
+            width: 100%;
+        }
     }
 }

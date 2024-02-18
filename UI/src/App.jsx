@@ -100,7 +100,7 @@ function App() {
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
-        { visitedList && <div className='visited-movies-container'>
+        {visitedList && <div className='visited-movies-container'>
             <ConciseFilmList />
         </div>}
 
@@ -110,7 +110,7 @@ function App() {
               <img alt={ visitedList ? 'close-icon' : 'eye-icon' } width='30px' src={ visitedList ? close : eyes } />
             </div>
             
-            {!visitedList && <div className='fab-button-so-far-notifications app-button'>
+            {!visitedList && <div className='fab-button-so-far-notifications notification'>
               {seen.length}
             </div>}
           </button>}

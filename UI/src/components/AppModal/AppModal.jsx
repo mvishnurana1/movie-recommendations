@@ -28,7 +28,7 @@ function AppModal({ closeModal, data, isModalOpen }) {
                 isOpen={isModalOpen} 
                 onRequestClose={closeModal}>
         <div className='modal-layout'>
-            <div style={{ width: '50%' }} className='flex-top'>
+            <div className='flex-top'>
                 <button className='modal-button app-button'
                     onClick={() => closeModal()}>
                     <span>
@@ -44,13 +44,13 @@ function AppModal({ closeModal, data, isModalOpen }) {
             <div className='gl-horizontally-centre'>
                 <img
                     alt={title+'-movie-poster'}
+                    className='img-poster'
                     style={{ borderRadius: '1rem' }}
                     src={ backdrop_path ? `${imageBaseUrl}${backdrop_path}` : `${blankFilm}`}
-                    width="50%"
                 />
             </div>
 
-            <div className='half-width' style={{ width: '50%' }}>
+            <div className='img-poster'>
                 <div className='gl-horizontal-space-between' style={{ marginTop: '1rem' }}>
                     <span style={{fontSize: '2vw'}}>
                         {title}
@@ -82,7 +82,7 @@ function AppModal({ closeModal, data, isModalOpen }) {
                 </div>
 
                 <div style={{
-                    fontSize: '1vw',
+                    fontSize: '1.2vw',
                     marginTop: '1rem',
                 }}>
                     {overview}

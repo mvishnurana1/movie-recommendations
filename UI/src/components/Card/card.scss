@@ -49,4 +49,8 @@
         display: flex;
         justify-content: center;
     }
+
+    &:hover {
+        background-color: slategray;
+    }
 }

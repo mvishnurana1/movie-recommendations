@@ -47,17 +47,17 @@ function AppModal({ closeModal, data, isModalOpen }) {
             </div>
 
             <div className='img-poster'>
-                <div className='gl-horizontal-space-between' style={{ marginTop: '1rem' }}>
-                    <span style={{fontSize: '2vw'}}>
+                <div className='align-centre' style={{ marginTop: '1rem' }}>
+                    <span className='film-title'>
                         {title}
                     </span>
 
-                    <span style={{fontSize: '1.2vw'}}>
+                    <span className='film-release-date'>
                         {numberToMonth(releaseDate.getMonth() + 1)}, {releaseDate.getFullYear()}
                     </span>
                 </div>
 
-                <div className='gl-horizontal-space-between' style={{ marginTop: '1rem', fontSize: '1.2vw' }}>
+                <div className='align-centre themes'>
                     <div style={{ width: '70%' }}>
                         {genre_ids.map((id, index) => <span key={id}>
                             {`${genreIdToGenreNameMapping[id]} `} 
@@ -70,17 +70,18 @@ function AppModal({ closeModal, data, isModalOpen }) {
                         alignItems: 'center',
                         gap: '0.5rem',
                     }}>
-                        <img src={star} alt="star-icon" width="25px" height="25px" />
+                        <img 
+                            alt="star-icon" 
+                            className='star-logo'
+                            src={star} 
+                        />
                         <span>
                             { vote_average.toFixed(1) }
                         </span>
                     </div>
                 </div>
 
-                <div style={{
-                    fontSize: '1.2vw',
-                    marginTop: '1rem',
-                }}>
+                <div className='overview'>
                     {overview}
                 </div>
             </div>

@@ -56,3 +56,8 @@
 .visited-movies-container::-webkit-scrollbar {
   display: none;
 }
+
+.align-centre {
+  @extend .gl-horizontal-space-between;
+  align-items: center;
+}

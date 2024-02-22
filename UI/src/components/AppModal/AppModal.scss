@@ -20,6 +20,26 @@
         margin: 0.5rem 0;
     }
 
+    .film-title {
+        font-size: 24px;
+        font-weight: 900;
+    }
+
+    .themes {
+        margin-top: 1rem;
+        color: grey;
+        font-size: 16px;
+    }
+
+    .overview {
+        font-size: 12px;
+        margin-top: 1rem;
+    }
+
+    .star-logo {
+        width: 25px;
+    }
+
     .modal-button {
         align-items: center;
         background-color: white;
@@ -46,6 +66,10 @@
     }
 
     @media screen and (max-width: 820px) {
+        .star-logo {
+            width: 15px;
+        }
+
         .img-poster {
             width: 100%;
         }

@@ -100,7 +100,7 @@ function App() {
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
-        {visitedList && <div className='visited-movies-container'>
+        {visitedList && (seen.length > 0) && <div className='visited-movies-container'>
             <ConciseFilmList />
         </div>}
 

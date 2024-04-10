@@ -4,7 +4,7 @@ import { AppModal } from '../AppModal';
 import { bin } from '../../assets';
 import './conciseFilmList.scss';
 
-function ConciseFilmList() {
+function ConciseFilmList({ setVisitedList }) {
     const { seen, setSeen } = useContext(filmContext);
     const [openedFilm, setOpenedFilm] = useState(null);
     const posterBasePath = 'https://image.tmdb.org/t/p/original/';
@@ -25,7 +25,10 @@ function ConciseFilmList() {
                 style={{ borderRadius: '0.25rem' }}/>
             <span
                 style={{ width: '120px' }}
-                onClick={() => setOpenedFilm(filmSeen)}>
+                onClick={() => { 
+                    setOpenedFilm(filmSeen);
+                    setVisitedList(false);
+                }}>
                 { filmSeen.title }
             </span>
             <button className='button-no-native-style' onClick={() => {

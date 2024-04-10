@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ConciseFilmList, ListingQuestion } from './components';
 import { filmContext } from './context';
 import { FilmRecommendations } from './features';
@@ -20,6 +20,8 @@ function App() {
     setEra,
     setCurrentDisplay,
   } = useContext(filmContext);
+
+  const showConciseFilmList = visitedList && (seen.length > 0);
 
   let coloursMapList = [];
   const specificColours = likeColorPallets[colour];
@@ -100,12 +102,12 @@ function App() {
 
         {(currentDisplay === 'recommendations') && <FilmRecommendations />}
 
-        {visitedList && (seen.length > 0) && <div className='visited-movies-container'>
-            <ConciseFilmList />
+        {showConciseFilmList && <div className='visited-movies-container'>
+            <ConciseFilmList setVisitedList={setVisitedList} />
         </div>}
 
         {(seen.length > 0) && displayFabButton &&
-          <button onClick={() => setVisitedList(!visitedList) }>
+          <button className='button-no-native-style' onClick={() => setVisitedList(!visitedList) }>
             <div className='fab-button-so-far'>
               <img alt={ visitedList ? 'close-icon' : 'eye-icon' } width='30px' src={ visitedList ? close : eyes } />
             </div>

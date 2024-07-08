@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const secrets = require('./secrets.json');
-const topRated = require('./top-rated');
+const secrets = require('./secrets/secrets.json');
+const topRated = require('./secrets/top-rated');
 
 app.use(cors());
 app.use(express.json());
@@ -64,7 +64,7 @@ function getUrlWithArgs(releaseDateLte, releaseDateGte, genre_code, lang) {
     `${moviesEndPoint}?api_key=${secrets.api_key}&include_video=true&sort_by=vote_average.desc
     &sort_by=popularity.desc&page=1&primary_release_date.lte=${releaseDateLte}&primary_release_date.gte=${releaseDateGte}
     &with_genres=${genre_code}&vote_count.gte=100&with_original_language=${lang}`;
-  
+
   return url;
 }
 
